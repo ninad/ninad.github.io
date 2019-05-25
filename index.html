@@ -1,7 +1,87 @@
+
 <!DOCTYPE html>
-<html>
+
+<html> 
+<head> 
+	<title>Ninad Raval / Generalist / Bombay </title> 
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+	<style type="text/css"> 
+		html { 
+			background: url(bg.jpg) no-repeat center center fixed; 
+			background-size: cover;
+			background-color: #f5f5f5;
+		}
+		html, body { 
+			font-family: 'Quicksand', sans-serif;
+			margin: 0px; 
+			width: 100%; 
+			height: 100%; 
+			font-size: 12px;
+		} 
+		#page { 
+			border: 0px; 
+			width: 80%; 
+			text-align: left; 
+			padding: 50px 10%;
+			line-height: 2em;
+			font-size: 150%;
+			color: #000;
+		}
+		a, a:visited {
+			color: #999;
+			text-decoration: underline;
+			border: none;
+		}
+		a:hover {
+			color: #000;
+		}
+		span.name {
+			font-size: 175%;
+			font-weight: 700;
+		}
+		b {
+			font-weight: 700;
+		}
+		a img {
+			padding-bottom: 20px;
+		}
+		#more {
+			display: none;
+		}
+		#moreBtn {
+			cursor: pointer;
+		}
+	</style> 
+</head> 
+
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+	<div id="page"> 
+		<a href="ninad_raval_big.jpg"><img src="ninad_raval.jpg" width="100" height="100" /></a><br />
+
+		<span class="name">Ninad Raval</span><br>
+		Bombay<br><br>
+
+		
+
+		<a href="http://twitter.com/ninad" target="_new">Ninad</a><br>
+		<a href="https://www.linkedin.com/in/ninadraval/" target="_new">LinkedIn</a><br>
+	  	<a href="http://github.com/ninad" target="_new">GitHub</a><br />
+		<a onclick="showLinks()" id="moreBtn">More</a>
+		<div id="more">
+			<a href="http://instagram.com/ninadraval" target="_new">Instagram</a><br />
+		</div>
+ 	</div>
+
 </body>
+
+<script>
+
+  function showLinks() {
+  	document.getElementById('moreBtn').style.display = 'none';
+  	document.getElementById('more').style.display = 'block';
+  }
+</script>
 </html>
