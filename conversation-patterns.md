@@ -21,14 +21,14 @@ If you get a bad answer, most often there is something wrong in the question. El
 ✅ Good Example:
 
 Example | Comment 
-- | -
-**`When is feature x going to be released?`** | *Specific, narrow, to the point, makes a demand*
+------- | -------
+**`When is feature x going to be released?`** | _Specific, narrow, to the point, makes a demand_
 
 ⛔️ Bad Example:
 
 Example | Comment 
-- | -
-**`WhenNext product release is on the 10th??`** | *Generic, more of a statement than a question*
+------- | -------
+**`WhenNext product release is on the 10th??`** | Generic, more of a statement than a question
 
 ### 2. Answering a question
 
