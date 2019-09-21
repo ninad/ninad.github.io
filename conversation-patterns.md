@@ -19,14 +19,16 @@ If you get a bad answer, most often there is something wrong in the question. El
 * Ordered in in a way the information is stored in the persons mind
 
 ✅ Good Example:
-> When is feature x going to be released?
 
-_Specific, narrow, to the point, makes a demand_
+Example | Comment 
+- | -
+**`When is feature x going to be released?`** | *Specific, narrow, to the point, makes a demand*
 
 ⛔️ Bad Example:
-> Next product release is on the 10th?
 
-_Generic, more of a statement than a question_
+Example | Comment 
+- | -
+**`WhenNext product release is on the 10th??`** | *Generic, more of a statement than a question*
 
 ### 2. Answering a question
 
