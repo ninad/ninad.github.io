@@ -17,16 +17,13 @@ Includes context or a topic
 Includes a clear demand
 Is specific and narrow
 Ordered in in a way the information is stored in the persons mind
+
 ✅ Good Example:
-
 > When is feature x going to be released?
-
 _Specific, narrow, to the point, makes a demand_
 
 ⛔️ Bad Example:
-
 > Next product release is on the 10th?
-
 _Generic, more of a statement than a question_
 
 ### 2. Answering a question
@@ -58,20 +55,30 @@ Any other information needed to add more value to the answer
 
 ## Modes of communications
 
-In person
-Video conferencing
-Chat based
-Email based
-Recorded (google docs?)
-When to use chat (vs email or phone or in person meeting)
+* In person
+* Video conferencing
+* Chat based
+* Email based
+* Recorded (google docs?)
 
-Urgent or Important → Call
-Important but not urgent → Chat first, wait, then call.
-Not important question → Chat
-Short update → Chat
-Praise or thanking someone → Chat
-Sharing knowledge → Chat
-Long update → Email
-Giving feedback → Email
-Make a proposal with lots of context → Email / Docs
-Sharing jokes → Chat (or nothing)
+## When to use chat (vs email or phone or in person meeting)
+
+* Urgent or Important → Call
+* Important but not urgent → Chat first, wait, then call.
+* Not important question → Chat
+* Short update → Chat
+* Praise or thanking someone → Chat
+* Sharing knowledge → Chat
+* Long update → Email
+* Giving feedback → Email
+* Make a proposal with lots of context → Email / Docs
+* Sharing jokes → Chat (or nothing)
+
+
+
+
+
+
+
+
+
