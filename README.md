@@ -1,1 +1,2 @@
-# ninad.github.io is a coollections of thoughts and bookmarks. versioned and published. 
+# ninad.github.io 
+this is is a collection of thoughts and bookmarks. Versioned and published. 
