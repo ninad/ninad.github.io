@@ -30,14 +30,14 @@ Example | Comment
 ------- | -------
 **`WhenNext product release is on the 10th??`** | Generic, more of a statement than a question
 
-### . Answering a question
+### 2. Answering a question
 
 Within the context or topic of the question
 To the point of the demand
 Any other information needed to add more value to the answer
 3. Asking for an update
 
-### . Requesting a meeting as a host
+### 3. Requesting a meeting as a host
 Here are some key things to keep in mind When requesting for a meeting
 * Give context of what the meeting is about
 * Let participants know how long will it be
@@ -46,23 +46,25 @@ Here are some key things to keep in mind When requesting for a meeting
 * Provide duration for the meeting
 * Let everyone know who all will be in the meeting
 
-### . Capturing Minutes of meetings
+## WIP
 
-### . Giving feedback
+### Capturing Minutes of meetings
 
-### . Asking for feedback
+### Giving feedback
 
-### . Giving an update
+### Asking for feedback
 
-### . Sharing an Idea
+### Giving an update
 
-### . Providing a summary of outcomes or making an observation
+### Sharing an Idea
 
-### . Praise/ thanking someone
+### Providing a summary of outcomes or making an observation
 
-### . Sharing knowledge
+### Praise/ thanking someone
 
-### . Acknowledgement
+### Sharing knowledge
+
+### Acknowledgement
 
 ## Modes of communications
 
