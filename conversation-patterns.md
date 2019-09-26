@@ -32,13 +32,13 @@ Example | Comment
 
 ### 2. Answering a question
 
-Within the context or topic of the question
-To the point of the demand
-Any other information needed to add more value to the answer
-3. Asking for an update
+* Stay within the context or the topic of the question
+* when you stray (and you will) come back as soon as you become aware
+* After you finish, ask if that answered the questions for the person.
+* Ask if any other information is needed
 
 ### 3. Requesting a meeting as a host
-Here are some key things to keep in mind When requesting for a meeting
+Here are some key things to keep in mind when requesting for a meeting.
 * Give context of what the meeting is about
 * Let participants know how long will it be
 * Provide more than one time slot for the meeting
@@ -47,6 +47,8 @@ Here are some key things to keep in mind When requesting for a meeting
 * Let everyone know who all will be in the meeting
 
 ## WIP
+
+### Asking for an update
 
 ### Capturing Minutes of meetings
 
