@@ -20,42 +20,49 @@ If you get a bad answer, most often there is something wrong in the question. El
 
 ✅ Good Example:
 
-Example | Comment 
+Example | Comment
 ------- | -------
 **`When is feature x going to be released?`** | _Specific, narrow, to the point, makes a demand_
 
 ⛔️ Bad Example:
 
-Example | Comment 
+Example | Comment
 ------- | -------
 **`WhenNext product release is on the 10th??`** | Generic, more of a statement than a question
 
-### 2. Answering a question
+### . Answering a question
 
 Within the context or topic of the question
 To the point of the demand
 Any other information needed to add more value to the answer
 3. Asking for an update
 
-### 4. Asking for feedback
+### . Requesting a meeting as a host
+Here are some key things to keep in mind When requesting for a meeting
+* Give context of what the meeting is about
+* Let participants know how long will it be
+* Provide more than one time slot for the meeting
+** if people are in different time zone - offer time slots in _their_ timezone
+* Provide duration for the meeting
+* Let everyone know who all will be in the meeting
 
-### 5. Giving an update
+### . Capturing Minutes of meetings
 
-### 6. Sharing an Idea
+### . Giving feedback
 
-### 7. Providing a summary of outcomes or making an observation
+### . Asking for feedback
 
-### 8. Requesting a meeting
+### . Giving an update
 
-### 9. Praise/ thanking someone
+### . Sharing an Idea
 
-### 10. Sharing knowledge
+### . Providing a summary of outcomes or making an observation
 
-### 11. Giving feedback
+### . Praise/ thanking someone
 
-### 12. Acknowledgement
+### . Sharing knowledge
 
-### 13. Mom
+### . Acknowledgement
 
 ## Modes of communications
 
