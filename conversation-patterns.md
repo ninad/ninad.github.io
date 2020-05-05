@@ -47,7 +47,7 @@ Here are some key things to keep in mind when requesting for a meeting.
 * Give context of what the meeting is about
 * Let everyone know how long will the meeting be
 * Provide more than one time slot for the meeting
-* * if people are in different time zone - offer time slots in _their_ timezone
+	* if people are in different time zone - offer time slots in _their_ timezone
 * Provide duration for the meeting
 * Let everyone know who all will be in the meeting
 
@@ -55,9 +55,13 @@ Here are some key things to keep in mind when requesting for a meeting.
 
 ### Asking for an update
 * set the context of what project you're asking an update for
-*
 
-### Giving an update
+### Giving an update to a group or 1:1
+* Think about who you are giving an update to
+* Set the context _Im going to discuss an update on this_
+* If there was a previous update, summaries it quickly _last week we discussed this_
+* What do they know already, what do they need to know *today*
+* Pause and clarify if _this is helpful_
 
 ### Asking for feedback
 
