@@ -1,2 +1,3 @@
 # ninad.github.io 
-This is a collection of my thoughts and bookmarks, versioned and published. 
+
+Hello world, this is a collection of my thoughts and bookmarks, versioned and published. 
