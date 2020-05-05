@@ -44,6 +44,17 @@ Example | Comment
 * After you finish, ask if that answered the questions for the person.
 * Ask if any other information is needed
 
+### Giving an update to a group or 1:1
+* Think about who you are giving an update to
+* Set the context _Im going to discuss an update on this_
+* If there was a previous update, summaries it quickly _last week we discussed this_
+* What do they know already, what do they need to know *today*
+* Pause and clarify if _this is helpful_
+
+### Asking for an update
+* Recommended medium: Email or Chat
+* Set the context of what project you're asking an update for
+
 ### Requesting a meeting as a host
 Here are some key things to keep in mind when requesting for a meeting.
 * Give context of what the meeting is about
@@ -60,16 +71,11 @@ Here are some key things to keep in mind when requesting for a meeting.
 * Set the agenda as a reminder 
 * Moderate the meeting it it's going off topic (be polite)
 
-### Asking for an update
-* Recommended medium: Email or Chat
-* Set the context of what project you're asking an update for
-
-### Giving an update to a group or 1:1
-* Think about who you are giving an update to
-* Set the context _Im going to discuss an update on this_
-* If there was a previous update, summaries it quickly _last week we discussed this_
-* What do they know already, what do they need to know *today*
-* Pause and clarify if _this is helpful_
+### Sharing an Idea or a Proposal
+* **Specify Goal:** Specify what the Idea or Proposal is towards, it could be a goal of the team or company, or it could be a problem the company is dealing with. Clearly articulate what the idea or the proposal is going to solve. 
+* **Specify Hypothesis:** If you can, talk about why do believe your proposal might work, your evidence might be anecdotal or just a gut feeling, either way call it out. 
+* **Specify Risks:** Think about why your idea might not work. 
+* **Ask for feedback:** Ask the for honest feedback on the idea. Be open to criticism  
 
 ### Asking for feedback
 * _coming soon_
@@ -77,8 +83,6 @@ Here are some key things to keep in mind when requesting for a meeting.
 ### Giving feedback
 * _coming soon_
 
-### Sharing an Idea or a Proposal
-* _coming soon_
 
 ### Providing a summary of outcomes or making an observation
 * _coming soon_
