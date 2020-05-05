@@ -13,8 +13,8 @@ These are some common conversational events that happen over and over at a work 
 
 If you get a bad answer, most often there is something wrong in the question. Elements of a good question are:
 
-* Includes context or a topic
-* Includes a clear demand
+* Include context or a topic
+* Include a clear demand
 * Is specific and narrow
 * Ordered in in a way the information is stored in the persons mind
 
@@ -32,7 +32,7 @@ Example | Comment
 
 ### 2. Answering a question
 
-* Use paul grice's Maxims
+* Use Paul Grice's Maxims
   * The maxim of quantity, where one tries to be as informative as one possibly can, and gives as much information as is needed, and no more.
   * The maxim of quality, where one tries to be truthful, and does not give information that is false or that is not supported by evidence.
   * The maxim of relation, where one tries to be relevant, and says things that are pertinent to the discussion.
@@ -52,7 +52,7 @@ Here are some key things to keep in mind when requesting for a meeting.
 * Provide duration for the meeting
 * Let everyone know who all will be in the meeting
 
-## WIP
+---
 
 ### Asking for an update
 * set the context of what project you're asking an update for
