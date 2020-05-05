@@ -8,18 +8,8 @@ In my observation, a lot of time is wasted in not communicating right. These are
 
 If you have suggestions email them at ninad at raval dot in. 
 
-### A brief history of communication
-
-We’ve evolved from speaking to drawing to writing with the advent of technology, starting from texting and then internet — writing has evolved significantly. In fact language has been attributed to our survival against other homo species the Neanderthal,
-
-Studies show that writing was only invented 5,500 years ago, whereas language probably traces back at least 80,000 years. Talking came first, and writing developed later. Earliest examples show that writing was first based on the way people speak, in short sentences. However, while talk is largely subconscious and rapid, writing is deliberate and slow.
-
-texting has become more popular than ever. not just in personal context, but also in business contexts. it is the most natural form on conversation after in person conversation. it is closest to in person conversation without the need for being present. Which allows for semi-async short conversations. no wonder than it has become immensely popular texting is more personal than writing, can communicate personality and empathy. It is more in the moment
-
-
 ## Patterns of conversations
 These are some common conversational events that happen over and over at a work place. Below are some good patterns on how to reduce friction in these events. 
-
 
 ### Asking a question
 
@@ -115,3 +105,10 @@ Here are some key things to keep in mind when requesting for a meeting.
 * Make a proposal with lots of context → Email / Docs
 * Sharing jokes → Chat (or nothing)
 
+### A brief history of communication
+
+We’ve evolved from speaking to drawing to writing with the advent of technology, starting from texting and then internet — writing has evolved significantly. In fact language has been attributed to our survival against other homo species the Neanderthal,
+
+Studies show that writing was only invented 5,500 years ago, whereas language probably traces back at least 80,000 years. Talking came first, and writing developed later. Earliest examples show that writing was first based on the way people speak, in short sentences. However, while talk is largely subconscious and rapid, writing is deliberate and slow.
+
+texting has become more popular than ever. not just in personal context, but also in business contexts. it is the most natural form on conversation after in person conversation. it is closest to in person conversation without the need for being present. Which allows for semi-async short conversations. no wonder than it has become immensely popular texting is more personal than writing, can communicate personality and empathy. It is more in the moment
