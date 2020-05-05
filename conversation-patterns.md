@@ -9,7 +9,7 @@ There are lots of different opportunities for us to communicate in our daily liv
 
 These are some common conversational events that happen over and over at a work place. Below are some good patterns on how to reduce friction in these events. these are just based on my personal experience and feeling. no scientific evidence. Just observation and experience.
 
-### 1. Asking a question
+### Asking a question
 
 If you get a bad answer, most often there is something wrong in the question. Elements of a good question are:
 
@@ -30,7 +30,7 @@ Example | Comment
 ------- | -------
 **Next product release is on the 10th??** | Generic, more of a statement than a question
 
-### 2. Answering a question
+### Answering a question
 
 * Use Paul Grice's Maxims
   * The maxim of quantity, where one tries to be as informative as one possibly can, and gives as much information as is needed, and no more.
@@ -42,7 +42,7 @@ Example | Comment
 * After you finish, ask if that answered the questions for the person.
 * Ask if any other information is needed
 
-### 3. Requesting a meeting as a host
+### Requesting a meeting as a host
 Here are some key things to keep in mind when requesting for a meeting.
 * Give context of what the meeting is about
 * Let everyone know how long will the meeting be
