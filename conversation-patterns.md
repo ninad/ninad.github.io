@@ -28,7 +28,7 @@ Example | Comment
 
 Example | Comment
 ------- | -------
-**`WhenNext product release is on the 10th??`** | Generic, more of a statement than a question
+**Next product release is on the 10th??** | Generic, more of a statement than a question
 
 ### 2. Answering a question
 
