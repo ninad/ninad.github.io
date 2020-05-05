@@ -37,7 +37,6 @@ Example | Comment
   * The maxim of quality, where one tries to be truthful, and does not give information that is false or that is not supported by evidence.
   * The maxim of relation, where one tries to be relevant, and says things that are pertinent to the discussion.
   * The maxim of manner, when one tries to be as clear, as brief, and as orderly as one can in what one says, and where one avoids obscurity and ambiguity.
-
 * Stay within the context or the topic of the question
 * when you stray (and you will) come back as soon as you become aware
 * After you finish, ask if that answered the questions for the person.
@@ -48,7 +47,7 @@ Here are some key things to keep in mind when requesting for a meeting.
 * Give context of what the meeting is about
 * Let everyone know how long will the meeting be
 * Provide more than one time slot for the meeting
-** if people are in different time zone - offer time slots in _their_ timezone
+* * if people are in different time zone - offer time slots in _their_ timezone
 * Provide duration for the meeting
 * Let everyone know who all will be in the meeting
 
