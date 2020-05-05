@@ -18,13 +18,13 @@ If you get a bad answer, most often there is something wrong in the question. El
 * Is specific and narrow
 * Ordered in in a way the information is stored in the persons mind
 
-✅ Good Example:
+**Good Example:**
 
 Example | Comment
 ------- | -------
 **`When is feature x going to be released?`** | _Specific, narrow, to the point, makes a demand_
 
-⛔️ Bad Example:
+**Bad Example:**
 
 Example | Comment
 ------- | -------
