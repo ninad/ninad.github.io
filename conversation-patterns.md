@@ -53,8 +53,16 @@ Here are some key things to keep in mind when requesting for a meeting.
 * Provide duration for the meeting
 * Let everyone know who all will be in the meeting
 
+### Hosting a meeting with group 
+* As a host take charge of the meeting and kick off the conversation
+* Make sure all required members are present
+* Set a time limit
+* Set the agenda as a reminder 
+* Moderate the meeting it it's going off topic (be polite)
+
 ### Asking for an update
-* set the context of what project you're asking an update for
+* Recommended medium: Email or Chat
+* Set the context of what project you're asking an update for
 
 ### Giving an update to a group or 1:1
 * Think about who you are giving an update to
