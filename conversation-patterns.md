@@ -51,8 +51,6 @@ Here are some key things to keep in mind when requesting for a meeting.
 * Provide duration for the meeting
 * Let everyone know who all will be in the meeting
 
----
-
 ### Asking for an update
 * set the context of what project you're asking an update for
 
@@ -64,18 +62,25 @@ Here are some key things to keep in mind when requesting for a meeting.
 * Pause and clarify if _this is helpful_
 
 ### Asking for feedback
+* _coming soon_
 
 ### Giving feedback
+* _coming soon_
 
 ### Sharing an Idea or a Proposal
+* _coming soon_
 
 ### Providing a summary of outcomes or making an observation
+* _coming soon_
 
 ### Praise/ thanking someone
+* _coming soon_
 
 ### Sharing knowledge
+* _coming soon_
 
 ### Acknowledgement
+* _coming soon_
 
 ## Modes of communications
 
