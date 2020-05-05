@@ -1,15 +1,16 @@
 # A Pattern language for communicating at work.
 📖 This is a living document and is updated and edited regularly with new observations and suggestions. 
-## Scope
 
+## Scope
 There are lots of different opportunities for us to communicate in our daily lives. This essay is about Chat, Email and In-person communications at work.
 
-## Patterns of conversations
-
-These are some common conversational events that happen over and over at a work place. Below are some good patterns on how to reduce friction in these events. In my observation, a lot of time is wasted in not communicating right. These are based on my personal experience and feeling. There is no evidence that these will work. I will try and apply these to my work everyday and update them as I go along. 
+In my observation, a lot of time is wasted in not communicating right. These are based on my personal experience and feeling. There is no evidence that these will work. I will try and apply these to my work everyday and update them as I go along. 
 
 If you have suggestions email them at ninad at raval dot in. 
 
+
+## Patterns of conversations
+These are some common conversational events that happen over and over at a work place. Below are some good patterns on how to reduce friction in these events. 
 
 ### Asking a question
 
