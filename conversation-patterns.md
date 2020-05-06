@@ -22,13 +22,14 @@ Example | Comment
 Urgent or Important | → Call
 Important but not urgent | → Chat first, wait, then call.
 Not important question | → Chat
-Short update | → Chat
-Praise or thanking someone | → Chat
-Sharing knowledge | → Chat
+Short update to directi manager or peer | → Chat
+Update to team or company | → Email
 Long update | → Email
+Praise or thanking someone | → Chat 
+Sharing knowledge | → Email
 Giving feedback | → Email
-Make a proposal with lots of context | → Email / Docs
-Sharing jokes | → Chat (or nothing)
+Make a proposal | → Email / Docs / Wiki
+Jokes | → Chat (or nothing)
 
 ## Patterns of conversations
 These are some common conversational events that happen over and over at a work place. Below are some good patterns on how to reduce friction in these events. 
