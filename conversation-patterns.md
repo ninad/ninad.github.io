@@ -18,7 +18,7 @@ If you have suggestions email them at ninad at raval dot in.
 ### When to use chat (vs email or phone or in person meeting)
 
 Type of communication | Urgency | Recommended mode
-------- | -------
+------- | ------- | -------
 Question | Urgent or Important | → Call
 Question | Important but not urgent | → Chat first, wait, then call.
 Question | Non critical or Important | → Chat
