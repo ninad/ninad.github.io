@@ -81,7 +81,9 @@ Here are some key things to keep in mind when requesting for a meeting.
 * _coming soon_
 
 ### Giving feedback
-* _coming soon_
+* Ask for permission to give feedback
+* Align feedback to the person personal goals
+* Be honest and polite
 
 
 ### Providing a summary of outcomes or making an observation
@@ -97,7 +99,6 @@ Here are some key things to keep in mind when requesting for a meeting.
 * _coming soon_
 
 ## Modes of communications
-
 * In person
 * Video conferencing
 * Chat based
@@ -105,7 +106,6 @@ Here are some key things to keep in mind when requesting for a meeting.
 * Recorded (google docs?)
 
 ## When to use chat (vs email or phone or in person meeting)
-
 * Urgent or Important → Call
 * Important but not urgent → Chat first, wait, then call.
 * Not important question → Chat
