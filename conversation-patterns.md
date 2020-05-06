@@ -30,7 +30,7 @@ Praise or thanking someone | All | → Chat
 Sharing knowledge | All | → Email
 Giving feedback | All  | → Email
 Make a proposal | All | → Email / Docs / Wiki
-Jokes | | → Chat (or nothing)
+Jokes | All | → Chat (or nothing)
 
 ## Patterns of conversations
 These are some common conversational events that happen over and over at a work place. Below are some good patterns on how to reduce friction in these events. 
