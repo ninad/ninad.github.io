@@ -17,7 +17,7 @@ If you have suggestions email them at ninad at raval dot in.
 
 ### When to use chat (vs email or phone or in person meeting)
 
-Example | Comment
+What you want to say | Recommended mode
 ------- | -------
 Urgent or Important | → Call
 Important but not urgent | → Chat first, wait, then call.
@@ -42,17 +42,10 @@ If you get a bad answer, most often there is something wrong in the question. El
 * Is specific and narrow
 * Ordered in in a way the information is stored in the persons mind
 
-**Good Example:**
-
 Example | Comment
 ------- | -------
-**When is feature x going to be released?** | _Specific, narrow, to the point, makes a demand_
-
-**Bad Example:**
-
-Example | Comment
-------- | -------
-**Next product release is on the 10th??** | Generic, more of a statement than a question
+When is feature x going to be released | _Specific, narrow, to the point, makes a demand_ 👍
+Next product release is on the 10th? | Generic, more of a statement than a question 👎
 
 ### Answering a question
 
