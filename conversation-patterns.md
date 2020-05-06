@@ -17,19 +17,20 @@ If you have suggestions email them at ninad at raval dot in.
 
 ### When to use chat (vs email or phone or in person meeting)
 
-What you want to say | Recommended mode
+Type of communication | Urgency | Recommended mode
 ------- | -------
-Urgent or Important | → Call
-Important but not urgent | → Chat first, wait, then call.
-Not important question | → Chat
-Short update to directi manager or peer | → Chat
-Update to team or company | → Email
-Long update | → Email
-Praise or thanking someone | → Chat 
-Sharing knowledge | → Email
-Giving feedback | → Email
-Make a proposal | → Email / Docs / Wiki
-Jokes | → Chat (or nothing)
+Question | Urgent or Important | → Call
+Question | Important but not urgent | → Chat first, wait, then call.
+Question | Non critical or Important | → Chat
+Update | Urgent or Important | → Call
+Update | Non critical | → Chat
+Update to team or company | All | → Email
+Long update | All |→ Email
+Praise or thanking someone | All | → Chat 
+Sharing knowledge | All | → Email
+Giving feedback | All  | → Email
+Make a proposal | All | → Email / Docs / Wiki
+Jokes | | → Chat (or nothing)
 
 ## Patterns of conversations
 These are some common conversational events that happen over and over at a work place. Below are some good patterns on how to reduce friction in these events. 
