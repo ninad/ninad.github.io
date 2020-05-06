@@ -8,11 +8,32 @@ In my observation, a lot of time is wasted in not communicating right. These are
 
 If you have suggestions email them at ninad at raval dot in. 
 
+## Modes of communications
+* In person
+* Video conferencing
+* Chat based
+* Email based
+* Recorded (google docs?)
+
+### When to use chat (vs email or phone or in person meeting)
+
+Example | Comment
+------- | -------
+Urgent or Important | → Call
+Important but not urgent | → Chat first, wait, then call.
+Not important question | → Chat
+Short update | → Chat
+Praise or thanking someone | → Chat
+Sharing knowledge | → Chat
+Long update | → Email
+Giving feedback | → Email
+Make a proposal with lots of context | → Email / Docs
+Sharing jokes | → Chat (or nothing)
+
 ## Patterns of conversations
 These are some common conversational events that happen over and over at a work place. Below are some good patterns on how to reduce friction in these events. 
 
 ### Asking a question
-
 If you get a bad answer, most often there is something wrong in the question. Elements of a good question are:
 
 * Include context or a topic
@@ -98,24 +119,7 @@ Here are some key things to keep in mind when requesting for a meeting.
 ### Acknowledgement
 * _coming soon_
 
-## Modes of communications
-* In person
-* Video conferencing
-* Chat based
-* Email based
-* Recorded (google docs?)
 
-## When to use chat (vs email or phone or in person meeting)
-* Urgent or Important → Call
-* Important but not urgent → Chat first, wait, then call.
-* Not important question → Chat
-* Short update → Chat
-* Praise or thanking someone → Chat
-* Sharing knowledge → Chat
-* Long update → Email
-* Giving feedback → Email
-* Make a proposal with lots of context → Email / Docs
-* Sharing jokes → Chat (or nothing)
 
 ### A brief history of communication
 
