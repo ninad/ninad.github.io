@@ -82,10 +82,17 @@ Here are some key things to keep in mind when requesting for a meeting.
 
 ### Hosting a meeting with group 
 * As a host take charge of the meeting and kick off the conversation
-* Make sure all required members are present
-* Set a time limit
+* If you are not the host, ask who is going to lead and moderate the meeting
 * Set the agenda as a reminder 
 * Moderate the meeting it it's going off topic (be polite)
+* Use a opinion circle to encourage participation 
+* Make notes of important action items 
+* Make sure all required members are present
+* Set a time limit
+
+
+### Participating in a meeting 
+* 
 
 ### Sharing an Idea or a Proposal
 * **Specify Goal:** Specify what the Idea or Proposal is towards, it could be a goal of the team or company, or it could be a problem the company is dealing with. Clearly articulate what the idea or the proposal is going to solve. 
