@@ -81,8 +81,9 @@ Here are some key things to keep in mind when requesting for a meeting.
 * Let everyone know who all will be in the meeting
 
 ### Meetings
-**When to Have Meetings**                          | **When to Avoid Meetings**
----------------------------------------------------|------------------------------
+
+When to Have Meetings | When to Avoid Meetings
+----------------------|-----------------------
 **To make critical decisions**: If real-time discussion and alignment are necessary for important business decisions. | **Status updates**: Use email, dashboards, or project tools like Slack, Asana, or Trello instead
 **For brainstorming and collaboration**: When creativity, ideas, and team input are needed in real-time. | **Unclear purpose**: If the meeting lacks a clear agenda, objective, or outcome
 **To resolve conflicts**: When sensitive topics or disagreements require face-to-face interaction. | **Information sharing only**: Use written communication or recorded videos
