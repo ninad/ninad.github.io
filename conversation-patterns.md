@@ -81,15 +81,15 @@ Here are some key things to keep in mind when requesting for a meeting.
 * Let everyone know who all will be in the meeting
 
 ### Meetings
-| **When to Have Meetings**                          | **When to Avoid Meetings**                       |
-|---------------------------------------------------|-----------------------------------------------|
-| **To make critical decisions**: If real-time discussion and alignment are necessary for important business decisions. | **Status updates**: Use email, dashboards, or project tools like Slack, Asana, or Trello instead. |
-| **For brainstorming and collaboration**: When creativity, ideas, and team input are needed in real-time. | **Unclear purpose**: If the meeting lacks a clear agenda, objective, or outcome. |
-| **To resolve conflicts**: When sensitive topics or disagreements require face-to-face interaction. | **Information sharing only**: Use written communication or recorded videos. |
-| **To align and sync teams**: For cross-departmental projects where real-time alignment is crucial. | **Too many attendees**: If individuals don’t need to actively contribute, reconsider their involvement. |
-| **For performance reviews or feedback**: Meetings work well for sensitive conversations requiring dialogue and understanding. | **Recurring meetings without purpose**: If a standing meeting has lost its value, cancel or reduce frequency. |
-| **For team connection**: Periodic team check-ins to build rapport and culture, especially for remote teams. | **Decision already made**: Don’t hold a meeting to rubber-stamp decisions that could be communicated. |
-| **Emergency or crisis handling**: When immediate real-time responses are necessary. | **Meetings out of habit**: Avoid meetings because “it’s always been done this way.” |
+**When to Have Meetings**                          | **When to Avoid Meetings**
+---------------------------------------------------|------------------------------
+**To make critical decisions**: If real-time discussion and alignment are necessary for important business decisions. | **Status updates**: Use email, dashboards, or project tools like Slack, Asana, or Trello instead
+**For brainstorming and collaboration**: When creativity, ideas, and team input are needed in real-time. | **Unclear purpose**: If the meeting lacks a clear agenda, objective, or outcome
+**To resolve conflicts**: When sensitive topics or disagreements require face-to-face interaction. | **Information sharing only**: Use written communication or recorded videos
+**To align and sync teams**: For cross-departmental projects where real-time alignment is crucial. | **Too many attendees**: If individuals don’t need to actively contribute, reconsider their involvement
+**For performance reviews or feedback**: Meetings work well for sensitive conversations requiring dialogue and understanding. | **Recurring meetings without purpose**: If a standing meeting has lost its value, cancel or reduce frequency
+**For team connection**: Periodic team check-ins to build rapport and culture, especially for remote teams. | **Decision already made**: Don’t hold a meeting to rubber-stamp decisions that could be communicated
+**Emergency or crisis handling**: When immediate real-time responses are necessary. | **Meetings out of habit**: Avoid meetings because “it’s always been done this way.
 
 ### Hosting a meeting with group 
 * As a host take charge of the meeting and kick off the conversation
