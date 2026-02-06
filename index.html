@@ -1,7 +1,7 @@
-
 <!DOCTYPE html>
 
 <html>
+
 <head>
 	<title>Ninad Raval - Generalist, Bombay > Dubai</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,17 +10,23 @@
 
 	<style type="text/css">
 		html {
-			background: url(bg.jpg) no-repeat center center fixed;
-			background-size: cover;
+			background:
+				radial-gradient(circle, #e0e0e0 1px, transparent 1px),
+				url(bg.jpg) no-repeat center center fixed;
+			background-size: 15px 15px, cover;
 			background-color: #fbfbf5;
+			background-position: 0 0, center center;
 		}
-		html, body {
-            font-family: 'Lora','Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+		html,
+		body {
+			font-family: 'Lora', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 			margin: 0px;
 			width: 100%;
 			height: 100%;
 			font-size: 12px;
 		}
+
 		#page {
 			border: 0px;
 			max-width: 500px;
@@ -30,33 +36,97 @@
 			font-size: 150%;
 			color: #000;
 		}
+
 		.footer {
 			color: #ccc;
 			font-size: 16px;
 		}
-		a, a:visited {
+
+		a,
+		a:visited {
 			color: #8e8e8e;
 			text-decoration: underline;
 			border: none;
 		}
+
 		a:hover {
 			color: #000;
 		}
+
 		span.name {
 			font-size: 175%;
 			font-weight: 700;
 		}
+
 		b {
 			font-weight: 700;
 		}
+
 		a img {
 			padding-bottom: 20px;
 		}
+
 		#more {
 			display: none;
 		}
+
 		#moreBtn {
 			cursor: pointer;
+		}
+
+		/* ASCII Wave Animation */
+		.wave-container {
+			font-family: 'Courier New', monospace;
+			font-size: 10px;
+			line-height: 1.2;
+			color: #ccc;
+			text-align: center;
+			padding: 20px 0 10px 0;
+			opacity: 0.6;
+		}
+
+		.wave-line {
+			white-space: pre;
+			animation: wave-flow 3s ease-in-out infinite;
+		}
+
+		.wave-line:nth-child(2) {
+			animation-delay: 0.5s;
+		}
+
+		.wave-line:nth-child(3) {
+			animation-delay: 1s;
+		}
+
+		@keyframes wave-flow {
+
+			0%,
+			100% {
+				opacity: 0.3;
+			}
+
+			50% {
+				opacity: 0.7;
+			}
+		}
+
+		/* Breathing Cursor */
+		.cursor {
+			font-family: 'Courier New', monospace;
+			animation: blink 1.5s ease-in-out infinite;
+			opacity: 1;
+		}
+
+		@keyframes blink {
+
+			0%,
+			100% {
+				opacity: 1;
+			}
+
+			50% {
+				opacity: 0;
+			}
 		}
 	</style>
 </head>
@@ -65,11 +135,12 @@
 	<div id="page">
 		<a href="#"><img src="ninad_raval_bw.jpg" width="100" /></a><br />
 
-		<span class="name">Ninad Raval</span><br><br>
-			Building thoughtful and well designed software products. Not doing more, doing <i>better.</i>
+		<span class="name">Ninad Raval</span><span class="cursor">_</span><br><br>
+		Building thoughtful and well designed software products. Not doing more, doing <i>better.</i>
 		<br>
 		<br>
 		<a href="https://thenorth.io" target="_new">thenorth.io</a><br>
+		<a href="https://answeritwell.com" target="_new">answeritwell.com</a><br>
 		<a href="https://hellomenot.com" target="_new">hellomenot.com</a><br>
 		<a href="https://storymap.site" target="_new">storymap.site</a><br>
 		<a href="https://melt.cafe" target="_new">melt.cafe</a><br>
@@ -84,15 +155,16 @@
 		<div class="footer">
 			<p>Take a deep breath.</p>
 		</div>
- 	</div>
+	</div>
 
 </body>
 
 <script>
 
-  function showLinks() {
-  	document.getElementById('moreBtn').style.display = 'none';
-  	document.getElementById('more').style.display = 'block';
-  }
+	function showLinks() {
+		document.getElementById('moreBtn').style.display = 'none';
+		document.getElementById('more').style.display = 'block';
+	}
 </script>
+
 </html>
