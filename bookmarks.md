@@ -34,11 +34,17 @@ Alexander's preface alone is worth it: most professionals fail because they acce
 
 The careful distinction between _simple_ (untangled, single-purpose) and _easy_ (familiar, near-at-hand). One of the most useful lenses on software complexity.
 
+> "Simple is the opposite of complex; easy is the opposite of hard. Simple is about the lack of interleaving, not about the cardinality. One braid is not simple — it's complected. We can make changes with confidence only in things we understand."
+
+> "Easy means 'to be at hand,' 'to be approachable.' It also means 'to be familiar.' But familiar is not the same as simple. We choose familiar things and call them simple, and then wonder why our systems become hard."
+
 ## Interaction design
 
 ### [A Brief Rant on the Future of Interaction Design](https://worrydream.com/ABriefRantOnTheFutureOfInteractionDesign/) — Bret Victor
 
 The canonical critique of "pictures under glass." A reminder that hands and bodies were left out of the modern interface.
+
+> "Hands have an incredible inborn capability that we hardly even appreciate. Pictures Under Glass sacrifice all the tactile richness of working with our hands, offering instead a hokey visual facade. Pictures Under Glass is an interaction paradigm of permanent numbness. It denies our hands what they do best. And yet, it's the dominant interaction paradigm of our era."
 
 ### [Magic Ink](https://worrydream.com/MagicInk/) — Bret Victor
 
@@ -47,6 +53,8 @@ A long argument that most software should be information design — letting peop
 ### [Inventing on Principle](https://vimeo.com/36579366) — Bret Victor
 
 A talk about building tools around a guiding principle. The live-feedback demos are still ahead of most software being shipped today.
+
+> "Creators need an immediate connection to what they're making. If you make a change or you make a decision, you need to see the effect of that immediately. There can't be a delay, and there can't be anything hidden. Creators have to be able to see what they're doing."
 
 ### [No to NoUI](https://www.elasticspace.com/2013/03/no-to-no-ui) — Timo Arnall
 
@@ -58,9 +66,15 @@ A counterpoint to "invisible design." Argues for legibility, seams, and material
 
 The memex essay. Prefigures hypertext, personal knowledge systems, and almost everything that came after.
 
+> "The human mind operates by association. With one item in its grasp, it snaps instantly to the next that is suggested by the association of thoughts, in accordance with some intricate web of trails carried by the cells of the brain. Man cannot hope fully to duplicate this mental process artificially, but he certainly ought to be able to learn from it."
+
+> "Consider a future device for individual use, which is a sort of mechanized private file and library. It needs a name, and to coin one at random, 'memex' will do."
+
 ### [Augmenting Human Intellect](https://www.dougengelbart.org/pubs/augment-3906.html) — Douglas Engelbart, 1962
 
 The philosophical root of computing as augmentation, not automation.
+
+> "By 'augmenting human intellect' we mean increasing the capability of a man to approach a complex problem situation, to gain comprehension to suit his particular needs, and to derive solutions to problems. We do not speak of isolated clever tricks that help in particular situations. We refer to a way of life in an integrated domain where hunches, cut-and-try, intangibles, and the human 'feel for a situation' usefully co-exist with powerful concepts, streamlined terminology, sophisticated methods, and high-powered electronic aids."
 
 ### [The Mother of All Demos](https://www.dougengelbart.org/theDemo) — Douglas Engelbart, 1968
 
@@ -73,6 +87,8 @@ The Dynabook vision: personal computing as an active medium for learning and cre
 ### [Bicycle for the Mind](https://www.youtube.com/watch?v=ob_GX50Za6c) — Steve Jobs
 
 Two minutes on why computers, like bicycles, are tools that amplify what humans can already do.
+
+> "I read a study that measured the efficiency of locomotion for various species on the planet. The condor used the least energy. Humans came in with a rather unimpressive showing about a third of the way down the list. But then somebody at Scientific American had the insight to test the efficiency of locomotion for a man on a bicycle, and a man on a bicycle blew the condor away. That's what a computer is to me. It's the most remarkable tool we've ever come up with. It's the equivalent of a bicycle for our minds."
 
 ### [How Can We Develop Transformative Tools for Thought?](https://numinous.productions/ttft/) — Andy Matuschak & Michael Nielsen
 
@@ -87,6 +103,8 @@ Technology should move between the center and periphery of attention, not consta
 ### [Ten Principles for Good Design](https://www.vitsoe.com/us/about/good-design) — Dieter Rams
 
 Useful, understandable, unobtrusive, honest, long-lasting, thorough, environmental, minimal. Still the cleanest principle set in design.
+
+> "Good design is as little design as possible. Less, but better — because it concentrates on the essential aspects, and the products are not burdened with non-essentials. Back to purity, back to simplicity."
 
 ## Habits of thought
 
