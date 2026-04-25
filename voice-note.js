@@ -10,7 +10,7 @@
 
 	var css = ''
 		+ '#voice-note{position:fixed;bottom:24px;left:10%;height:44px;min-width:44px;'
-		+ 'border-radius:22px;border:1px solid #e0e0e0;background:#fff;color:#4a4a4a;'
+		+ 'border-radius:22px;border:1px solid #e0e0e0;background:#fff;color:#8e8e8e;'
 		+ 'display:inline-flex;align-items:center;justify-content:flex-start;padding:0 14px;'
 		+ "font-family:'Lora','Lucida Sans Unicode','Lucida Grande','Lucida Sans',Arial,sans-serif;"
 		+ 'font-size:14px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,0.06);'
@@ -23,12 +23,12 @@
 		+ '#voice-note.error{min-width:240px;}'
 		+ '#voice-note:hover .vn-label,#voice-note.recording .vn-label,#voice-note.sending .vn-label,'
 		+ '#voice-note.done .vn-label,#voice-note.error .vn-label{max-width:200px;margin-left:10px;opacity:1;}'
-		+ '#voice-note.recording{background:#f4d6d6;color:#a83a3a;border-color:#e8b8b8;}'
+		+ '#voice-note.recording{background:#f4d6d6;color:#c0392b;border-color:#e8b8b8;}'
 		+ '#voice-note.recording:hover{background:#efc8c8;}'
 		+ '#voice-note.recording .vn-icon{animation:vn-blink 1s ease-in-out infinite;}'
 		+ '#voice-note.sending{background:#f0f0eb;color:#6a6a6a;border-color:#d8d8d2;'
 		+ 'cursor:wait;pointer-events:none;}'
-		+ '#voice-note.done{background:#d8e4d6;color:#3a5c43;border-color:#b8cdb6;}'
+		+ '#voice-note.done{background:#d8e4d6;color:#2e7d32;border-color:#b8cdb6;}'
 		+ '#voice-note.error{background:#f0f0eb;color:#6a6a6a;border-color:#d8d8d2;}'
 		+ '@keyframes vn-blink{0%,100%{opacity:1;}50%{opacity:0;}}';
 
