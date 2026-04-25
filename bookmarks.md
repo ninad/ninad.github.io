@@ -18,17 +18,25 @@ Source of truth for `bookmarks.html`. Edit this file, then run `python build.py`
 
 A designer's eye essay. Less about UI mechanics, more about training perception.
 
+> "Learning to design is, first of all, learning to see. Designers see more, and more precisely. This is a blessing and a curse — once we have learned to see design, both good and bad, we cannot un-see. The downside is that the more you learn to see, the more you lose your 'common' eye, the eye you design for."
+
 ### [What Screens Want](https://frankchimero.com/blog/2013/what-screens-want/) — Frank Chimero
 
 A meditation on the screen as a material with its own grain — fluid, edgeless, and best designed with rather than against.
+
+> "So, if computers are like aspirin, and we've been making the computers smaller and smaller, where's the necessary padding that allows us to grasp things? I stumbled over the question for a while. Then it hit me. The padding isn't around the screens. It's in them."
 
 ### [Web Design is 95% Typography](https://ia.net/topics/the-web-is-all-about-typography-period) — iA
 
 Most of the web is text, so most of web design is typography. Treat type as interface.
 
+> "Optimizing typography is optimizing readability, accessibility, usability, and overall graphic balance."
+
 ### [Patterns of Software](https://www.dreamsongs.com/Files/PatternsOfSoftware.pdf) — Christopher Alexander (preface) & Richard Gabriel
 
 Alexander's preface alone is worth it: most professionals fail because they accept standards that are too low.
+
+> "In my life as an architect, I find that the single thing which inhibits young professionals, new students most severely, is their acceptance of standards that are too low."
 
 ### [Simple Made Easy](https://www.infoq.com/presentations/Simple-Made-Easy/) — Rich Hickey
 
@@ -50,6 +58,8 @@ The canonical critique of "pictures under glass." A reminder that hands and bodi
 
 A long argument that most software should be information design — letting people see, not click.
 
+> "Information software design is graphic design, not engineering, not human-computer interaction, not 'experience design.'"
+
 ### [Inventing on Principle](https://vimeo.com/36579366) — Bret Victor
 
 A talk about building tools around a guiding principle. The live-feedback demos are still ahead of most software being shipped today.
@@ -59,6 +69,8 @@ A talk about building tools around a guiding principle. The live-feedback demos 
 ### [No to NoUI](https://www.elasticspace.com/2013/03/no-to-no-ui) — Timo Arnall
 
 A counterpoint to "invisible design." Argues for legibility, seams, and materiality so people can understand what systems are doing.
+
+> "Invisibility is generally a poor design strategy. Hiding the seams hides what people need to know to engage critically with technology."
 
 ## Tools for thought
 
@@ -80,9 +92,13 @@ The philosophical root of computing as augmentation, not automation.
 
 Mouse, windows, hypertext, video conferencing, collaborative editing — all introduced in a single demo, decades early.
 
+> "If in your office, you, as an intellectual worker, were supplied with a computer display backed up by a computer that was alive for you all day, and was instantly responsive to every action you have — how much value could you derive from that?"
+
 ### [Personal Dynamic Media](https://www.newmediareader.com/book_samples/nmr-26-kay.pdf) — Alan Kay & Adele Goldberg, 1977
 
 The Dynabook vision: personal computing as an active medium for learning and creation, not a productivity appliance.
+
+> "Imagine having your own self-contained knowledge manipulator in a portable package the size and shape of an ordinary notebook."
 
 ### [Bicycle for the Mind](https://www.youtube.com/watch?v=ob_GX50Za6c) — Steve Jobs
 
@@ -94,11 +110,15 @@ Two minutes on why computers, like bicycles, are tools that amplify what humans 
 
 A modern continuation of Engelbart and Kay. Why we still don't have real tools for thought, and what kind of work might get us there.
 
+> "Tools for thought is a catch-all phrase for systems that expand the kinds of thoughts human beings can think."
+
 ## First principles
 
 ### [The Coming Age of Calm Technology](https://calmtech.com/papers/coming-age-calm-technology) — Mark Weiser & John Seely Brown
 
 Technology should move between the center and periphery of attention, not constantly demand it.
+
+> "Calm technology engages both the center and the periphery of our attention, and in fact moves back and forth between the two."
 
 ### [Ten Principles for Good Design](https://www.vitsoe.com/us/about/good-design) — Dieter Rams
 

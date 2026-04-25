@@ -135,15 +135,15 @@ def render(sections) -> str:
 
             if e["quotes"]:
                 out.append('\t\t<div class="entry">\n')
-                out.append('\t\t\t<aside class="quotes">\n')
-                for q in e["quotes"]:
-                    out.append(f'\t\t\t\t<blockquote>{render_inline(q)}</blockquote>\n')
-                out.append('\t\t\t</aside>\n')
                 out.append(
                     f'\t\t\t<a class="title" href="{url}" target="_new">{title}</a> '
                     f'<span class="by">— {by}</span>\n'
                 )
                 out.append(f'\t\t\t<span class="note">{note}</span>\n')
+                out.append('\t\t\t<aside class="quotes">\n')
+                for q in e["quotes"]:
+                    out.append(f'\t\t\t\t<blockquote>{render_inline(q)}</blockquote>\n')
+                out.append('\t\t\t</aside>\n')
                 out.append('\t\t</div>\n\n')
             else:
                 out.append('\t\t<div class="entry">\n')
