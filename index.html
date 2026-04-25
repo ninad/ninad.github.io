@@ -3,6 +3,7 @@
 <html>
 
 <head>
+	<meta charset="utf-8">
 	<title>Ninad Raval - Generalist, Bombay > Dubai</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
@@ -29,12 +30,31 @@
 
 		#page {
 			border: 0px;
-			max-width: 500px;
+			max-width: 620px;
 			text-align: left;
 			padding: 50px 10%;
 			line-height: 2em;
 			font-size: 150%;
 			color: #000;
+		}
+
+		.cols {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 0 24px;
+			margin-top: 0.5em;
+		}
+
+		.col .group {
+			display: block;
+			margin-bottom: 0.2em;
+		}
+
+		@media (max-width: 560px) {
+			.cols {
+				grid-template-columns: 1fr;
+				gap: 1em 0;
+			}
 		}
 
 		.footer {
@@ -136,23 +156,30 @@
 		<a href="#"><img src="ninad_raval_bw.jpg" width="70" /></a><br />
 
 		<span class="name">Ninad Raval</span><span class="cursor">_</span><br><br>
-		Building thoughtful and well designed software products. Not doing more, doing <i>better.</i>
+		Building thoughtful and well designed software products.<br>
+		Not doing more, doing <i>better.</i>
 		<br>
 		<br>
-		<span class="group">Projects</span><br>
-		<a href="https://thenorth.io" target="_new">thenorth.io</a><br>
-		<a href="https://answeritwell.com" target="_new">answeritwell.com</a><br>
-		<a href="https://hellomenot.com" target="_new">hellomenot.com</a><br>
-		<a href="https://storymap.site" target="_new">storymap.site</a><br>
-		<br>
-		<span class="group">Reading</span><br>
-		<a href="books.html">Books</a><br>
-		<a href="bookmarks.html">Bookmarks</a><br>
-		<br>
-		<span class="group">Elsewhere</span><br>
-		<a href="http://twitter.com/ninad" target="_new">twitter.com/ninad</a><br>
-		<a href="https://www.linkedin.com/in/ninadraval/" target="_new">LinkedIn</a><br>
-		<a href="http://instagram.com/ninadraval" target="_new">Instagram</a><br>
+		<div class="cols">
+			<div class="col">
+				<span class="group">Projects</span>
+				<a href="https://thenorth.io" target="_new">thenorth.io</a><br>
+				<a href="https://answeritwell.com" target="_new">answeritwell.com</a><br>
+				<a href="https://hellomenot.com" target="_new">hellomenot.com</a><br>
+				<a href="https://storymap.site" target="_new">storymap.site</a><br>
+			</div>
+			<div class="col">
+				<span class="group">Reading</span>
+				<a href="books.html">Books</a><br>
+				<a href="bookmarks.html">Bookmarks</a><br>
+			</div>
+			<div class="col">
+				<span class="group">Elsewhere</span>
+				<a href="http://twitter.com/ninad" target="_new">twitter.com/ninad</a><br>
+				<a href="https://www.linkedin.com/in/ninadraval/" target="_new">LinkedIn</a><br>
+				<a href="http://instagram.com/ninadraval" target="_new">Instagram</a><br>
+			</div>
+		</div>
 		<div class="footer">
 			<p>Take a deep breath.</p>
 		</div>
