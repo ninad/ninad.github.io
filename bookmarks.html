@@ -30,7 +30,7 @@
 
 		#page {
 			border: 0px;
-			max-width: 620px;
+			max-width: 920px;
 			text-align: left;
 			padding: 50px 10%;
 			line-height: 1.8em;
@@ -104,6 +104,44 @@
 			margin-top: 0.35em;
 		}
 
+		.entry .quotes {
+			display: block;
+			margin-top: 0.6em;
+			font-size: 82%;
+			line-height: 1.55em;
+			color: #6b6b6b;
+		}
+
+		.entry .quotes blockquote {
+			margin: 0 0 0.7em 0;
+			padding: 0 0 0 14px;
+			border-left: 2px solid #d6d2c4;
+			font-style: italic;
+		}
+
+		.entry .quotes blockquote:last-child {
+			margin-bottom: 0;
+		}
+
+		@media (min-width: 820px) {
+			.entry:has(.quotes) {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) 280px;
+				column-gap: 36px;
+				align-items: start;
+			}
+
+			.entry:has(.quotes) > .entry-body {
+				grid-column: 1;
+			}
+
+			.entry:has(.quotes) > .quotes {
+				grid-column: 2;
+				grid-row: 1;
+				margin-top: 0.2em;
+			}
+		}
+
 		.back {
 			display: block;
 			margin-bottom: 2em;
@@ -138,6 +176,7 @@
 		<span class="name">Bookmarks</span><span class="cursor">_</span><br><br>
 		<div class="intro">A small collection of essays, talks, and books I keep returning to. Mostly about taste, software, and what computers are for.</div>
 
+		<!-- ENTRIES:START -->
 		<h2>Taste</h2>
 
 		<div class="entry">
@@ -234,36 +273,72 @@
 		<h2>Habits of thought</h2>
 
 		<div class="entry">
-			<a class="title" href="https://fs.blog/the-work-required-to-have-an-opinion/" target="_new">The Work Required to Have an Opinion</a> <span class="by">— Farnam Street</span>
-			<span class="note">Charlie Munger's rule: you don't get an opinion on something until you can argue the other side better than its strongest defender. A discipline for honest thinking.</span>
+			<div class="entry-body">
+				<a class="title" href="https://fs.blog/the-work-required-to-have-an-opinion/" target="_new">The Work Required to Have an Opinion</a> <span class="by">— Farnam Street</span>
+				<span class="note">Charlie Munger's rule: you don't get an opinion on something until you can argue the other side better than its strongest defender. A discipline for honest thinking.</span>
+			</div>
+			<aside class="quotes">
+				<blockquote>"I never allow myself to have an opinion on anything that I don't know the other side's argument better than they do."</blockquote>
+				<blockquote>"Teach thy tongue to say 'I do not know,' and thou shalt progress."</blockquote>
+			</aside>
 		</div>
 
 		<div class="entry">
-			<a class="title" href="https://www.youtube.com/watch?v=oP3c1h8v2ZQ" target="_new">The Shapes of Stories</a> <span class="by">— Kurt Vonnegut</span>
-			<span class="note">A five-minute lecture that maps every narrative onto a few simple curves. Delightful in itself, and quietly profound as a tool for seeing structure.</span>
+			<div class="entry-body">
+				<a class="title" href="https://www.youtube.com/watch?v=oP3c1h8v2ZQ" target="_new">The Shapes of Stories</a> <span class="by">— Kurt Vonnegut</span>
+				<span class="note">A five-minute lecture that maps every narrative onto a few simple curves. Delightful in itself, and quietly profound as a tool for seeing structure.</span>
+			</div>
+			<aside class="quotes">
+				<blockquote>"There's no reason why the simple shapes of stories can't be fed into computers. They are beautiful shapes."</blockquote>
+				<blockquote>"The truth is, we know so little about life, we don't really know what the good news is and what the bad news is."</blockquote>
+			</aside>
 		</div>
 
 		<h2>On walking</h2>
 
 		<div class="entry">
-			<a class="title" href="https://www.theatlantic.com/magazine/archive/1862/06/walking/304674/" target="_new">Walking</a> <span class="by">— Henry David Thoreau, 1862</span>
-			<span class="note">The foundational essay. "I have met with but one or two persons in the course of my life who understood the art of Walking, that is, of taking walks." Sauntering as a discipline.</span>
+			<div class="entry-body">
+				<a class="title" href="https://www.theatlantic.com/magazine/archive/1862/06/walking/304674/" target="_new">Walking</a> <span class="by">— Henry David Thoreau, 1862</span>
+				<span class="note">The foundational essay on walking as a discipline rather than an exercise — the case for sauntering, for wildness, and for going somewhere on foot.</span>
+			</div>
+			<aside class="quotes">
+				<blockquote>"He who sits still in a house all the time may be the greatest vagrant of all; but the saunterer, in the good sense, is no more vagrant than the meandering river, which is all the while sedulously seeking the shortest course to the sea."</blockquote>
+				<blockquote>"In Wildness is the preservation of the World."</blockquote>
+			</aside>
 		</div>
 
 		<div class="entry">
-			<a class="title" href="https://www.newyorker.com/magazine/2014/09/01/heavens-gaits" target="_new">Heaven's Gaits</a> <span class="by">— Adam Gopnik, The New Yorker</span>
-			<span class="note">A survey of the modern literature on walking — Solnit, Gros, Nicholson — and a clear-eyed argument for why we walk: not for fitness, but for the way it changes thought.</span>
+			<div class="entry-body">
+				<a class="title" href="https://www.newyorker.com/magazine/2014/09/01/heavens-gaits" target="_new">Heaven's Gaits</a> <span class="by">— Adam Gopnik, The New Yorker</span>
+				<span class="note">A survey of the modern literature on walking — Solnit, Gros, Nicholson — and a clear-eyed argument for why we walk: not for fitness, but for the way it changes thought.</span>
+			</div>
+			<aside class="quotes">
+				<blockquote>"Walking is the Western form of meditation: 'You're doing nothing when you walk, nothing but walking.'"</blockquote>
+				<blockquote>"Movement and mind are linked in Western thought."</blockquote>
+			</aside>
 		</div>
 
 		<div class="entry">
-			<a class="title" href="https://www.themarginalian.org/2019/05/21/flaneuse-lauren-elkin/" target="_new">Why We Walk: A Manifesto for Peripatetic Empowerment</a> <span class="by">— Maria Popova / The Marginalian</span>
-			<span class="note">On Lauren Elkin and the flâneuse — walking as the body's way of thinking, and the city as a medium for attention and reflection.</span>
+			<div class="entry-body">
+				<a class="title" href="https://www.themarginalian.org/2019/05/21/flaneuse-lauren-elkin/" target="_new">Why We Walk: A Manifesto for Peripatetic Empowerment</a> <span class="by">— Maria Popova / The Marginalian</span>
+				<span class="note">On Lauren Elkin and the flâneuse — walking as the body's way of thinking, and the city as a medium for attention and reflection.</span>
+			</div>
+			<aside class="quotes">
+				<blockquote>"Walking is mapping with your feet. It helps you piece a city together, connecting up neighbourhoods that might otherwise have remained discrete entities."</blockquote>
+				<blockquote>"I walk because it confers — or restores — a feeling of placeness. The geographer Yi-Fu Tuan says a space becomes a place when through movement we invest it with meaning."</blockquote>
+			</aside>
 		</div>
 
 		<div class="entry">
-			<a class="title" href="https://www.apa.org/pubs/journals/releases/xlm-a0036577.pdf" target="_new">Give Your Ideas Some Legs</a> <span class="by">— Marily Oppezzo &amp; Daniel L. Schwartz, Stanford 2014</span>
-			<span class="note">The research paper everyone cites. Walking lifts creative output by ~60% in a controlled study; the effect persists shortly after sitting down.</span>
+			<div class="entry-body">
+				<a class="title" href="https://www.apa.org/pubs/journals/releases/xlm-a0036577.pdf" target="_new">Give Your Ideas Some Legs</a> <span class="by">— Marily Oppezzo &amp; Daniel L. Schwartz, Stanford 2014</span>
+				<span class="note">The research paper everyone cites. Walking lifts creative output by ~60% in a controlled study; the effect persists shortly after sitting down.</span>
+			</div>
+			<aside class="quotes">
+				<blockquote>"Walking opens up the free flow of ideas, and it is a simple and robust solution to the goals of increasing creativity and increasing physical activity."</blockquote>
+			</aside>
 		</div>
+		<!-- ENTRIES:END -->
 
 		<div class="footer">
 			<p>Take a deep breath.</p>
