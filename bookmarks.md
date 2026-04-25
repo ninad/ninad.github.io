@@ -19,6 +19,7 @@ Source of truth for `bookmarks.html`. Edit this file, then run `python build.py`
 A designer's eye essay. Less about UI mechanics, more about training perception.
 
 > "Learning to design is, first of all, learning to see. Designers see more, and more precisely. This is a blessing and a curse — once we have learned to see design, both good and bad, we cannot un-see. The downside is that the more you learn to see, the more you lose your 'common' eye, the eye you design for."
+> "See with one eye, feel with the other. —Paul Klee"
 
 ### [What Screens Want](https://frankchimero.com/blog/2013/what-screens-want/) — Frank Chimero
 
