@@ -1,0 +1,36 @@
+name: build-bookmarks
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - bookmarks.md
+      - build.py
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Regenerate bookmarks.html
+        run: python3 build.py
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet -- bookmarks.html; then
+            echo "bookmarks.html unchanged; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bookmarks.html
+          git commit -m "build: regenerate bookmarks.html [skip ci]"
+          git push
