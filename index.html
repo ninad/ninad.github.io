@@ -148,6 +148,62 @@
 				opacity: 0;
 			}
 		}
+
+		/* Voice note button (experimental) */
+		#voice-note {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			width: 44px;
+			height: 44px;
+			border-radius: 50%;
+			border: 1px solid #e0e0e0;
+			background: #fbfbf5;
+			color: #8e8e8e;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0;
+			transition: color 0.2s, border-color 0.2s;
+			z-index: 100;
+		}
+
+		#voice-note:hover {
+			color: #000;
+			border-color: #8e8e8e;
+		}
+
+		#voice-note.recording {
+			color: #c44;
+			border-color: #c44;
+			animation: blink 1.2s ease-in-out infinite;
+		}
+
+		#voice-note.sending {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+
+		#voice-note-status {
+			position: fixed;
+			bottom: 72px;
+			right: 20px;
+			max-width: 200px;
+			text-align: right;
+			font-family: 'Courier New', monospace;
+			font-size: 10px;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+			color: #8e8e8e;
+			opacity: 0;
+			transition: opacity 0.3s;
+			pointer-events: none;
+		}
+
+		#voice-note-status.show {
+			opacity: 1;
+		}
 	</style>
 </head>
 
@@ -185,6 +241,109 @@
 			<p>Take a deep breath.</p>
 		</div>
 	</div>
+
+	<div id="voice-note-status" role="status" aria-live="polite"></div>
+	<button id="voice-note" type="button" aria-label="Leave a voice note" title="Leave a voice note">
+		<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+			<rect x="9" y="3" width="6" height="12" rx="3"/>
+			<path d="M5 11a7 7 0 0 0 14 0"/>
+			<line x1="12" y1="18" x2="12" y2="22"/>
+			<line x1="8" y1="22" x2="16" y2="22"/>
+		</svg>
+	</button>
+
+	<script>
+		(function () {
+			var btn = document.getElementById('voice-note');
+			var statusEl = document.getElementById('voice-note-status');
+
+			if (!navigator.mediaDevices || !window.MediaRecorder) {
+				btn.style.display = 'none';
+				return;
+			}
+
+			var ACCESS_KEY = 'dc8cae8d-ee51-4289-844f-f06035ccfca7';
+			var MAX_SECONDS = 60;
+			var statusTimer = null;
+			var stopTimer = null;
+			var recorder = null;
+			var chunks = [];
+
+			function showStatus(msg, ms) {
+				statusEl.textContent = msg;
+				statusEl.classList.add('show');
+				if (statusTimer) clearTimeout(statusTimer);
+				statusTimer = setTimeout(function () {
+					statusEl.classList.remove('show');
+				}, ms || 2500);
+			}
+
+			function pickMimeType() {
+				var candidates = ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4', 'audio/ogg'];
+				for (var i = 0; i < candidates.length; i++) {
+					if (MediaRecorder.isTypeSupported(candidates[i])) return candidates[i];
+				}
+				return '';
+			}
+
+			async function startRecording() {
+				try {
+					var stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+					var mimeType = pickMimeType();
+					recorder = mimeType ? new MediaRecorder(stream, { mimeType: mimeType }) : new MediaRecorder(stream);
+					chunks = [];
+					recorder.ondataavailable = function (e) {
+						if (e.data && e.data.size > 0) chunks.push(e.data);
+					};
+					recorder.onstop = async function () {
+						stream.getTracks().forEach(function (t) { t.stop(); });
+						var blob = new Blob(chunks, { type: recorder.mimeType || 'audio/webm' });
+						await sendRecording(blob);
+					};
+					recorder.start();
+					btn.classList.add('recording');
+					showStatus('recording — click to stop', MAX_SECONDS * 1000);
+					stopTimer = setTimeout(stopRecording, MAX_SECONDS * 1000);
+				} catch (err) {
+					showStatus('mic permission denied');
+				}
+			}
+
+			function stopRecording() {
+				if (stopTimer) { clearTimeout(stopTimer); stopTimer = null; }
+				if (recorder && recorder.state !== 'inactive') recorder.stop();
+				btn.classList.remove('recording');
+			}
+
+			async function sendRecording(blob) {
+				btn.classList.add('sending');
+				showStatus('sending…', 30000);
+				var ext = (blob.type.indexOf('mp4') !== -1) ? 'm4a'
+					: (blob.type.indexOf('ogg') !== -1) ? 'ogg'
+					: 'webm';
+				var fd = new FormData();
+				fd.append('access_key', ACCESS_KEY);
+				fd.append('subject', 'Voice note from ninad.in');
+				fd.append('from_name', 'ninad.in voice note');
+				fd.append('message', 'A voice note was recorded on ninad.in. See attached audio.');
+				fd.append('attachment', blob, 'voicenote-' + Date.now() + '.' + ext);
+				try {
+					var res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd });
+					if (res.ok) showStatus('sent — thanks');
+					else showStatus('send failed');
+				} catch (err) {
+					showStatus('send failed');
+				} finally {
+					btn.classList.remove('sending');
+				}
+			}
+
+			btn.addEventListener('click', function () {
+				if (btn.classList.contains('recording')) stopRecording();
+				else startRecording();
+			});
+		})();
+	</script>
 
 </body>
 
