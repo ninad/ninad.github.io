@@ -67,12 +67,11 @@
 			mix-blend-mode: multiply;
 		}
 
-		#more {
-			display: none;
-		}
-
-		#moreBtn {
-			cursor: pointer;
+		.group {
+			font-size: 65%;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+			color: #b8b8b8;
 		}
 
 		/* ASCII Wave Animation */
@@ -134,39 +133,31 @@
 
 <body>
 	<div id="page">
-		<a href="#"><img src="ninad_raval_bw.jpg" width="100" /></a><br />
+		<a href="#"><img src="ninad_raval_bw.jpg" width="70" /></a><br />
 
 		<span class="name">Ninad Raval</span><span class="cursor">_</span><br><br>
 		Building thoughtful and well designed software products. Not doing more, doing <i>better.</i>
 		<br>
 		<br>
+		<span class="group">Projects</span><br>
 		<a href="https://thenorth.io" target="_new">thenorth.io</a><br>
 		<a href="https://answeritwell.com" target="_new">answeritwell.com</a><br>
 		<a href="https://hellomenot.com" target="_new">hellomenot.com</a><br>
 		<a href="https://storymap.site" target="_new">storymap.site</a><br>
-		<a href="https://melt.cafe" target="_new">melt.cafe</a><br>
-		<a href="http://twitter.com/ninad" target="_new">twitter.com/ninad</a><br>
-		<a href="https://www.goodreads.com/raval" target="_new">Bookshelf</a><br>
+		<br>
+		<span class="group">Reading</span><br>
+		<a href="books.html">Books</a><br>
 		<a href="bookmarks.html">Bookmarks</a><br>
-		<a onclick="showLinks()" id="moreBtn">More</a>
-		<div id="more">
-			<a href="https://www.linkedin.com/in/ninadraval/" target="_new">LinkedIn</a><br>
-			<!-- <a href="http://github.com/ninad" target="_new">GitHub</a><br /> -->
-			<a href="http://instagram.com/ninadraval" target="_new">Instagram</a><br />
-		</div>
+		<br>
+		<span class="group">Elsewhere</span><br>
+		<a href="http://twitter.com/ninad" target="_new">twitter.com/ninad</a><br>
+		<a href="https://www.linkedin.com/in/ninadraval/" target="_new">LinkedIn</a><br>
+		<a href="http://instagram.com/ninadraval" target="_new">Instagram</a><br>
 		<div class="footer">
 			<p>Take a deep breath.</p>
 		</div>
 	</div>
 
 </body>
-
-<script>
-
-	function showLinks() {
-		document.getElementById('moreBtn').style.display = 'none';
-		document.getElementById('more').style.display = 'block';
-	}
-</script>
 
 </html>
