@@ -148,21 +148,10 @@ A five-minute lecture that maps every narrative onto a few simple curves. Deligh
 
 ## On walking
 
-### [Walking](https://www.theatlantic.com/magazine/archive/1862/06/walking/304674/) — Henry David Thoreau, 1862
+### [Why I walk](https://walkingtheworld.substack.com/p/why-i-walk-part-1?s=w) — Chris Aarnade
 
-The foundational essay on walking as a discipline rather than an exercise — the case for sauntering, for wildness, and for going somewhere on foot.
+> "To be cliched, the beginning and ends of the walks didn’t really matter, but the fun is what and who I found in between. Things like pigeon keepers, bike clubs, cricket matches, guys scrappin cans, Thai wats, kids playing in hydrants, and so on and so on. People just living their lives, in very different ways from me."
 
-> "He who sits still in a house all the time may be the greatest vagrant of all; but the saunterer, in the good sense, is no more vagrant than the meandering river, which is all the while sedulously seeking the shortest course to the sea."
-
-> "In Wildness is the preservation of the World."
-
-### [Heaven's Gaits](https://www.newyorker.com/magazine/2014/09/01/heavens-gaits) — Adam Gopnik, The New Yorker
-
-A survey of the modern literature on walking — Solnit, Gros, Nicholson — and a clear-eyed argument for why we walk: not for fitness, but for the way it changes thought.
-
-> "Walking is the Western form of meditation: 'You're doing nothing when you walk, nothing but walking.'"
-
-> "Movement and mind are linked in Western thought."
 
 ### [Why We Walk: A Manifesto for Peripatetic Empowerment](https://www.themarginalian.org/2019/05/21/flaneuse-lauren-elkin/) — Maria Popova / The Marginalian
 
