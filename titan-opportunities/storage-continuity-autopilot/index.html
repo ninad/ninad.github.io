@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Titan — Storage & Continuity Autopilot</title>
+  <style>
+    :root{--ink:#17223b;--muted:#69738a;--line:#e3e8f2;--blue:#1667ff;--blue2:#eaf2ff;--nav:#111827;--warn:#f59e0b;--danger:#d14343;--green:#16845b;--canvas:#f4f6fa;--card:#fff}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--canvas);color:var(--ink)}
+    button{font:inherit}.app{min-height:100vh;display:grid;grid-template-columns:260px 1fr}.rail{background:var(--nav);color:#d7ddea;padding:28px 22px;display:flex;flex-direction:column}.brand{font-size:22px;font-weight:800;letter-spacing:.08em;margin-bottom:38px}.account{font-size:14px;color:#95a0b5;margin-bottom:28px}.account strong{display:block;color:white;font-size:16px;margin-bottom:4px}.nav{display:grid;gap:8px}.nav div{padding:12px 14px;border-radius:10px}.nav .active{background:#22304b;color:white}.rail-note{margin-top:auto;background:#202b42;border:1px solid #34425d;border-radius:14px;padding:14px;font-size:12px;line-height:1.5;color:#bbc5d8}
+    main{padding:32px 36px}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px}.top h1{font-size:23px;margin:0}.badge{font-size:12px;background:#e8fff6;color:var(--green);padding:7px 10px;border-radius:99px;font-weight:700}.grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:22px;max-width:1120px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 30px rgba(26,39,71,.06)}
+    .hero{padding:26px}.eyebrow{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--warn)}.hero h2{font-size:28px;line-height:1.18;margin:9px 0 9px;max-width:620px}.hero p{color:var(--muted);line-height:1.6;margin:0 0 22px}.meter{height:14px;background:#edf0f6;border-radius:99px;overflow:hidden}.meter span{display:block;height:100%;width:87%;background:linear-gradient(90deg,var(--blue) 0 72%,var(--warn) 72% 100%);border-radius:99px;transition:.3s}.usage-row{display:flex;justify-content:space-between;margin:10px 0 24px;font-size:13px}.usage-row strong{font-size:15px}.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 24px}.step{border:1px solid var(--line);border-radius:12px;padding:13px}.step span{font-size:11px;color:var(--muted)}.step strong{display:block;margin-top:5px;font-size:13px}.step.now{border-color:#f6bf54;background:#fff9ec}.actions{display:flex;gap:11px;flex-wrap:wrap}.primary,.secondary{border-radius:10px;padding:12px 17px;font-weight:750;cursor:pointer}.primary{background:var(--blue);color:white;border:1px solid var(--blue)}.secondary{background:white;color:var(--ink);border:1px solid #cbd3e1}.primary:focus,.secondary:focus,.state-btn:focus{outline:3px solid rgba(22,103,255,.25);outline-offset:2px}.fine{font-size:12px;color:var(--muted);margin-top:14px!important}
+    .side{padding:22px}.side h3{margin:0 0 6px;font-size:17px}.side>p{margin:0 0 16px;color:var(--muted);font-size:13px;line-height:1.5}.plan{border:2px solid var(--blue);border-radius:14px;padding:17px}.plan-head{display:flex;justify-content:space-between;align-items:start}.plan h4{margin:0;font-size:18px}.price{text-align:right;font-weight:800}.price span{display:block;font-weight:500;font-size:11px;color:var(--muted)}.delta{background:var(--blue2);color:#0b54d0;border-radius:10px;margin:14px 0;padding:11px;font-size:13px;font-weight:700}.plan ul{padding-left:19px;margin:12px 0;color:#45506a;font-size:13px;line-height:1.8}.safe{display:flex;gap:8px;align-items:flex-start;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);line-height:1.5}.safe b{color:var(--green)}
+    .sim{grid-column:1/-1;padding:18px 22px;display:flex;align-items:center;gap:16px}.sim strong{font-size:13px}.states{display:flex;gap:8px;flex-wrap:wrap}.state-btn{border:1px solid #cfd6e3;background:white;border-radius:99px;padding:8px 12px;font-size:12px;cursor:pointer}.state-btn.active{border-color:var(--blue);background:var(--blue2);color:#0d57d7;font-weight:700}.toast{position:fixed;right:28px;bottom:28px;background:#13203a;color:white;padding:15px 18px;border-radius:12px;box-shadow:0 12px 34px rgba(0,0,0,.22);font-size:13px;opacity:0;transform:translateY(10px);pointer-events:none;transition:.2s}.toast.show{opacity:1;transform:none}
+    @media(max-width:900px){.app{grid-template-columns:1fr}.rail{display:none}.grid{grid-template-columns:1fr}main{padding:22px}.sim{display:block}.states{margin-top:12px}}@media(max-width:560px){.timeline{grid-template-columns:1fr}.hero h2{font-size:23px}.top{align-items:flex-start;gap:12px}.badge{white-space:nowrap}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="rail"><div class="brand">TITAN</div><div class="account"><strong>you@northstarstudio.com</strong>GoDaddy · Pro Lite</div><div class="nav"><div>Inbox</div><div>Sent</div><div class="active">Storage & continuity</div><div>Settings</div></div><div class="rail-note">Prototype principle<br><strong style="color:white">Resolve the risk, not just the checkout.</strong><br>Every paid path returns to a verified capacity state.</div></aside>
+    <main>
+      <div class="top"><h1>Mailbox health</h1><div class="badge">Mail is flowing normally</div></div>
+      <div class="grid">
+        <section class="card hero" aria-live="polite">
+          <div class="eyebrow" id="severity">Approaching capacity</div>
+          <h2 id="headline">You have time to protect this mailbox before it fills up.</h2>
+          <p id="description">At your recent pace, storage may run out in 18–27 days. This estimate uses the last 30 days and will update as usage changes.</p>
+          <div class="meter" aria-label="Mailbox storage used"><span id="meter"></span></div>
+          <div class="usage-row"><strong id="usage">8.7 GB of 10 GB used</strong><span id="percent">87% full</span></div>
+          <div class="timeline"><div class="step"><span>Today</span><strong>Mail is working</strong></div><div class="step now"><span>Estimated in 18–27 days</span><strong>Capacity may be reached</strong></div><div class="step"><span>If full</span><strong>New mail may be disrupted</strong></div></div>
+          <div class="actions"><button class="primary" id="review">Review my options</button><button class="secondary" id="cleanup">See safe cleanup actions</button></div>
+          <p class="fine">We will never delete messages or change your plan automatically.</p>
+        </section>
+        <aside class="card side" id="recommendation">
+          <h3>Smallest plan that resolves this risk</h3><p>Only this mailbox changes. Other mailboxes on your domain keep their current plans.</p>
+          <div class="plan"><div class="plan-head"><div><h4>Pro Plus</h4><small>For you@northstarstudio.com</small></div><div class="price">$X.XX<span>/ mailbox / month</span></div></div><div class="delta">+40 GB mailbox capacity</div><ul><li>10 GB → 50 GB total storage</li><li>Your email and settings stay in place</li><li>Recurring price confirmed by GoDaddy</li></ul><button class="primary" style="width:100%" id="upgrade">Continue to GoDaddy</button><div class="safe"><b>✓</b><span>After checkout, you return here and we confirm the new capacity before calling the issue resolved.</span></div></div>
+        </aside>
+        <section class="card sim"><strong>Explore capacity states</strong><div class="states"><button class="state-btn" data-state="healthy">Healthy · 42%</button><button class="state-btn active" data-state="approaching">Approaching · 87%</button><button class="state-btn" data-state="critical">Critical · 96%</button><button class="state-btn" data-state="full">Full · 100%</button><button class="state-btn" data-state="resolved">Upgraded · 18%</button></div></section>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script>
+    const states={
+      healthy:{sev:'Healthy',head:'This mailbox has plenty of room.',desc:'No action is needed. We will notify you only if the capacity outlook changes materially.',use:'4.2 GB of 10 GB used',pct:'42% full',width:'42%',color:'#16845b',show:false,badge:'Mail is flowing normally'},
+      approaching:{sev:'Approaching capacity',head:'You have time to protect this mailbox before it fills up.',desc:'At your recent pace, storage may run out in 18–27 days. This estimate uses the last 30 days and will update as usage changes.',use:'8.7 GB of 10 GB used',pct:'87% full',width:'87%',color:'linear-gradient(90deg,#1667ff 0 72%,#f59e0b 72% 100%)',show:true,badge:'Mail is flowing normally'},
+      critical:{sev:'Critical capacity',head:'This mailbox could fill within days.',desc:'Only 400 MB remains. Review safe actions now or add capacity to reduce the risk of interrupted mail.',use:'9.6 GB of 10 GB used',pct:'96% full',width:'96%',color:'#f59e0b',show:true,badge:'Action recommended'},
+      full:{sev:'Mailbox full',head:'Restore capacity to protect new mail.',desc:'This mailbox has reached its current limit. Choose a supported cleanup action or add capacity. We will confirm when mail can flow normally.',use:'10 GB of 10 GB used',pct:'100% full',width:'100%',color:'#d14343',show:true,badge:'Capacity reached'},
+      resolved:{sev:'Capacity restored',head:'Your mailbox now has room to grow.',desc:'Pro Plus is active for this mailbox. Current usage is 9.1 GB of 50 GB, and the capacity risk is resolved.',use:'9.1 GB of 50 GB used',pct:'18% full',width:'18%',color:'#16845b',show:false,badge:'Capacity risk resolved'}
+    };
+    const toast=document.getElementById('toast');function say(t){toast.textContent=t;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2600)}
+    document.querySelectorAll('.state-btn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.state-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');const s=states[b.dataset.state];severity.textContent=s.sev;headline.textContent=s.head;description.textContent=s.desc;usage.textContent=s.use;percent.textContent=s.pct;meter.style.width=s.width;meter.style.background=s.color;document.querySelector('.badge').textContent=s.badge;recommendation.style.display=s.show?'block':'none'}));
+    review.onclick=()=>{recommendation.scrollIntoView({behavior:'smooth',block:'center'});say('Recommendation is specific to this mailbox')};cleanup.onclick=()=>say('Safe actions: remove selected large mail, empty trash, or download first');upgrade.onclick=()=>say('Prototype: GoDaddy checkout → return → capacity confirmation');
+  </script>
+</body>
+</html>
