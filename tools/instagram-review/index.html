@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instagram review · Ninad Raval</title>
+  <link rel="stylesheet" href="/app.css">
+  <script>window.REVIEW_TOKEN = "__REVIEW_TOKEN__";</script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">ninad.in / photos</p>
+      <h1>Instagram review</h1>
+    </div>
+    <div class="summary" aria-live="polite">
+      <span id="draftCount">0 drafts</span>
+      <span id="approvedCount">0 approved</span>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <aside class="library" aria-label="Gallery media">
+      <div class="library-head">
+        <span>Gallery</span>
+        <span id="itemCount" class="muted"></span>
+      </div>
+      <div id="mediaList" class="media-list"></div>
+    </aside>
+
+    <section id="emptyState" class="empty-state">
+      <p>Select a photograph to prepare it for Instagram.</p>
+    </section>
+
+    <section id="editor" class="editor" hidden>
+      <div class="canvas-wrap">
+        <div id="previewFrame" class="preview-frame feed_portrait">
+          <img id="imagePreview" alt="" hidden>
+          <video id="videoPreview" controls playsinline hidden></video>
+        </div>
+        <p class="preview-note">The crop shown here is the crop that will be approved.</p>
+      </div>
+
+      <form id="reviewForm" class="review-form">
+        <div class="status-row">
+          <span id="statusPill" class="status-pill">Draft</span>
+          <span id="savedState" class="saved-state" aria-live="polite">Ready to edit</span>
+        </div>
+
+        <label>
+          <span>Format</span>
+          <select id="format" name="format"></select>
+        </label>
+
+        <fieldset id="cropControls">
+          <legend>Crop focus</legend>
+          <label>
+            <span>Horizontal <output id="focalXValue">50%</output></span>
+            <input id="focalX" name="focal_x" type="range" min="0" max="100" value="50">
+          </label>
+          <label>
+            <span>Vertical <output id="focalYValue">50%</output></span>
+            <input id="focalY" name="focal_y" type="range" min="0" max="100" value="50">
+          </label>
+        </fieldset>
+
+        <label>
+          <span>Caption <output id="captionCount">0 / 2200</output></span>
+          <textarea id="caption" name="caption" rows="7" maxlength="2200"></textarea>
+        </label>
+
+        <label>
+          <span>Visual description</span>
+          <textarea id="alt" name="alt" rows="3" maxlength="1000"></textarea>
+        </label>
+
+        <div class="source-note">
+          <span id="sourceName"></span>
+          <span id="sourceDimensions"></span>
+        </div>
+
+        <div class="actions">
+          <button id="saveButton" class="button secondary" type="submit">Save draft</button>
+          <button id="approveButton" class="button primary" type="button">Approve</button>
+        </div>
+        <p class="approval-note">Approval locks this exact crop and copy. Editing it later returns the item to Draft.</p>
+      </form>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

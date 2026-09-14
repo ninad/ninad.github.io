@@ -90,7 +90,34 @@ Creator). Copy `.env.instagram.example` to `.env.instagram` and add an Instagram
 user ID and access token with the content-publishing permission. Tokens must
 never be committed.
 
-After configuration, publish to GitHub and Instagram together:
+Open the local review dashboard:
+
+```sh
+python3 scripts/photos.py review
+```
+
+Then visit `http://127.0.0.1:8765/`. Select an item, choose its format, adjust
+the crop focus, and edit the caption or visual description. **Save draft** keeps
+the work local. **Approve** renders the exact Instagram JPEG and locks the
+approval to a hash of that media and copy. Any later edit automatically returns
+it to Draft.
+
+The dashboard binds only to localhost. It never sends the Instagram access
+token to the browser, and its review state stays in the ignored
+`.instagram-review-state.json` file.
+
+Publish only approved items:
+
+```sh
+python3 scripts/photos.py instagram
+```
+
+This commits and pushes the approved asset so Meta can fetch it, waits for the
+public URL, and then creates the Instagram post. The final media ID is saved in
+the local review state and `.photo-publisher-state.json`.
+
+You can still publish the website and any already-approved Instagram items in
+one command:
 
 ```sh
 python3 scripts/photos.py publish --instagram
@@ -102,10 +129,11 @@ Or keep both automated:
 python3 scripts/photos.py watch --publish --instagram
 ```
 
-Instagram publishing currently sends still images only. It fetches the image
-from its public GitHub Pages URL, so this stage runs
-after the Git push and waits for the image to become reachable. Successful post
-IDs are stored only in `.photo-publisher-state.json` to prevent duplicates.
+Feed photos and Reels are supported by the publisher. Still-image Stories can
+be prepared and approved in the dashboard; their API publishing step is not yet
+enabled. The publisher fetches media from its public GitHub Pages URL, so it
+waits for the approved asset to become reachable. Successful post IDs are
+stored locally to prevent duplicates.
 
 Instagram feed-caption URLs are plain text rather than clickable links. Set the
 Instagram profile website to `https://ninad.in/photos.html`; each generated

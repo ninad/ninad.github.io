@@ -336,7 +336,7 @@ def run_git(*args: str, check: bool = True) -> subprocess.CompletedProcess:
 
 
 def publish_github(added: list[str]) -> bool:
-    paths = ("assets/photos", "photos.json", "photos.html")
+    paths = ["assets/photos", "photos.json", "photos.html"]
     run_git("add", "--", *paths)
     changed = run_git("diff", "--cached", "--quiet", "--", *paths, check=False).returncode != 0
     if not changed:
@@ -351,6 +351,16 @@ def publish_github(added: list[str]) -> bool:
     run_git("commit", "-m", subject, "--", *paths)
     run_git("push", "origin", "HEAD")
     return True
+
+
+def publish_instagram_assets(approved: list[tuple[dict, dict]]) -> None:
+    paths = sorted({draft["rendered_file"] for _, draft in approved})
+    run_git("add", "--", *paths)
+    changed = run_git("diff", "--cached", "--quiet", "--", *paths, check=False).returncode != 0
+    if changed:
+        subject = "Prepare approved Instagram media" if len(paths) > 1 else f"Prepare Instagram media: {Path(paths[0]).name}"
+        run_git("commit", "-m", subject, "--", *paths)
+    run_git("push", "origin", "HEAD")
 
 
 def load_env_file(path: Path) -> None:
@@ -389,6 +399,8 @@ def wait_until_public(url: str, timeout: int = 300) -> None:
 
 
 def publish_instagram() -> None:
+    from instagram_review import approved_drafts, mark_published
+
     load_env_file(ROOT / ".env.instagram")
     user_id = os.environ.get("INSTAGRAM_USER_ID")
     token = os.environ.get("INSTAGRAM_ACCESS_TOKEN")
@@ -398,26 +410,60 @@ def publish_instagram() -> None:
     host = os.environ.get("INSTAGRAM_GRAPH_HOST", "https://graph.instagram.com").rstrip("/")
     site = os.environ.get("SITE_URL", "https://ninad.in").rstrip("/")
     state = json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {}
-    manifest = load_manifest()
-    for photo in reversed(manifest):
-        file = photo["file"]
-        if photo.get("type", "image") != "image" or not photo.get("share_instagram") or file in state:
+    approved = approved_drafts()
+    if not approved:
+        print("No approved Instagram drafts to publish. Open the review dashboard first.")
+        return
+    publishable = [(photo, draft) for photo, draft in approved if draft.get("format") != "story"]
+    story_count = len(approved) - len(publishable)
+    if story_count:
+        print(f"Skipping {story_count} approved Story draft(s); Story API publishing is not enabled yet.")
+    if not publishable:
+        return
+    publish_instagram_assets(publishable)
+    for photo, draft in reversed(publishable):
+        file = draft["rendered_file"]
+        if file in state:
             continue
-        image_url = f"{site}/{file}"
-        wait_until_public(image_url)
-        caption = photo.get("instagram_caption") or photo.get("description") or photo.get("title") or photo.get("alt")
-        caption = f"{caption}\n\nMore photographs: {site}/photos.html"
-        created = json_request(f"{host}/{version}/{user_id}/media", {
-            "image_url": image_url,
-            "caption": caption,
-            "access_token": token,
-        })
+        media_url = f"{site}/{file}"
+        wait_until_public(media_url)
+        caption = draft["caption"]
+        if photo.get("type", "image") == "video":
+            created = json_request(f"{host}/{version}/{user_id}/media", {
+                "media_type": "REELS",
+                "video_url": media_url,
+                "caption": caption,
+                "share_to_feed": "true",
+                "access_token": token,
+            })
+            deadline = time.time() + 300
+            while time.time() < deadline:
+                status_url = f"{host}/{version}/{created['id']}?" + urllib.parse.urlencode({
+                    "fields": "status_code,status",
+                    "access_token": token,
+                })
+                with urllib.request.urlopen(status_url, timeout=30) as response:
+                    container = json.load(response)
+                if container.get("status_code") == "FINISHED":
+                    break
+                if container.get("status_code") in {"ERROR", "EXPIRED"}:
+                    raise RuntimeError(f"Instagram could not process the Reel: {container.get('status')}")
+                time.sleep(5)
+            else:
+                raise TimeoutError("Instagram did not finish processing the Reel within 5 minutes")
+        else:
+            created = json_request(f"{host}/{version}/{user_id}/media", {
+                "image_url": media_url,
+                "caption": caption,
+                "access_token": token,
+            })
         media = json_request(f"{host}/{version}/{user_id}/media_publish", {
             "creation_id": created["id"],
             "access_token": token,
         })
         state[file] = {"media_id": media["id"], "posted_at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
         STATE.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
+        mark_published(photo, media["id"])
         print(f"Posted {file} to Instagram as {media['id']}")
 
 
@@ -455,10 +501,11 @@ def watch(inbox: Path, should_publish: bool, instagram: bool) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("sync", "publish", "watch", "instagram"))
+    parser.add_argument("command", choices=("sync", "publish", "watch", "review", "instagram"))
     parser.add_argument("--inbox", type=Path, default=DEFAULT_INBOX)
     parser.add_argument("--publish", action="store_true", help="commit and push changes while watching")
     parser.add_argument("--instagram", action="store_true", help="post eligible new photos after GitHub publishing")
+    parser.add_argument("--port", type=int, default=8765, help="local port for the Instagram review dashboard")
     args = parser.parse_args()
     if args.command == "sync":
         sync(args.inbox)
@@ -469,6 +516,9 @@ def main() -> None:
             publish_instagram()
     elif args.command == "instagram":
         publish_instagram()
+    elif args.command == "review":
+        from instagram_review import serve
+        serve("127.0.0.1", args.port, False)
     else:
         try:
             watch(args.inbox, args.publish, args.instagram)
