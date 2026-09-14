@@ -1,2 +1,9 @@
 .claude/
 .DS_Store
+photo-inbox/*
+!photo-inbox/README.md
+!photo-inbox/photo-name.json.example
+.env.instagram
+.photo-publisher-state.json
+__pycache__/
+*.pyc

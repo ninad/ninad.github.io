@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Photos - Ninad Raval</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="A collection of photographs by Ninad Raval. Places, light, and moments along the way.">
+	<script src="theme.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Lora&amp;display=swap" rel="stylesheet">
+	<link href="theme.css" rel="stylesheet">
+	<link href="photos.css" rel="stylesheet">
+	<script src="photos.js" defer></script>
+</head>
+<body>
+	<a href="index.html" id="back" class="back" aria-label="Back to home">← back</a>
+	<button type="button" id="themeToggle" class="theme-toggle" aria-pressed="false">dim</button>
+	<main id="home">
+		<div id="rail">
+		<!-- Photo order and descriptions live here. Link directly to each image as a no-JS fallback. -->
+		<ul id="railTrack" class="rail" aria-label="Photographs by Ninad Raval">
+			<!-- Sample caption options: title only, title with a note, and a short story. -->
+			<!-- PHOTOS:START -->
+			<li class="photo" data-title="Towards the light">
+				<a href="assets/photos/dscf2926.jpg" aria-label="Open photo 1: A golden church spire beneath blue sky and overhanging branches">
+					<img src="assets/photos/dscf2926.jpg" alt="A golden church spire beneath blue sky and overhanging branches" width="1920" height="1280" loading="eager" decoding="async" fetchpriority="high" draggable="false">
+				</a>
+			</li>
+			<li class="photo" data-title="After the heat" data-caption="A red sun, a quiet dune, and the last light of the day.">
+				<a href="assets/photos/img_3067.jpg" aria-label="Open photo 2: Off-road vehicles on a sand dune beneath a red setting sun">
+					<img src="assets/photos/img_3067.jpg" alt="Off-road vehicles on a sand dune beneath a red setting sun" width="1440" height="1920" loading="lazy" decoding="async" draggable="false">
+				</a>
+			</li>
+			<li class="photo" data-caption="A small white house, almost lost in the green. The mountains catch the light while the valley waits its turn.">
+				<a href="assets/photos/dscf3005.jpg" aria-label="Open photo 3: A small white building in a green valley beneath sunlit mountains">
+					<img src="assets/photos/dscf3005.jpg" alt="A small white building in a green valley beneath sunlit mountains" width="1920" height="1280" loading="lazy" decoding="async" draggable="false">
+				</a>
+			</li>
+			<li class="photo">
+				<a href="assets/photos/dscf3009.jpg" aria-label="Open photo 4: Sheep grazing on a green plain below rolling hills">
+					<img src="assets/photos/dscf3009.jpg" alt="Sheep grazing on a green plain below rolling hills" width="1920" height="1280" loading="lazy" decoding="async" draggable="false">
+				</a>
+			</li>
+			<li class="photo">
+				<a href="assets/photos/img_8568.jpg" aria-label="Open photo 5: Trees and distant towers framed by a sunlit archway">
+					<img src="assets/photos/img_8568.jpg" alt="Trees and distant towers framed by a sunlit archway" width="1440" height="1920" loading="lazy" decoding="async" draggable="false">
+				</a>
+			</li>
+			<li class="photo">
+				<a href="assets/photos/755a3987.jpg" aria-label="Open photo 6: An illuminated tower and silhouetted cypress trees at dusk">
+					<img src="assets/photos/755a3987.jpg" alt="An illuminated tower and silhouetted cypress trees at dusk" width="1920" height="1280" loading="lazy" decoding="async" draggable="false">
+				</a>
+			</li>
+			<li class="photo">
+				<a href="assets/photos/dscf1712.jpg" aria-label="Open photo 7: A distant mosque framed by a dark archway in evening light">
+					<img src="assets/photos/dscf1712.jpg" alt="A distant mosque framed by a dark archway in evening light" width="1920" height="1280" loading="lazy" decoding="async" draggable="false">
+				</a>
+			</li>
+			<li class="photo">
+				<a href="assets/photos/dscf3071.jpg" aria-label="Open photo 8: A child raising a roadside barrier beside red hills, seen from a car">
+					<img src="assets/photos/dscf3071.jpg" alt="A child raising a roadside barrier beside red hills, seen from a car" width="1920" height="1280" loading="lazy" decoding="async" draggable="false">
+				</a>
+			</li>
+			<li class="photo">
+				<a href="assets/photos/dscf3109.jpg" aria-label="Open photo 9: Layers of rugged canyons beneath an overcast sky">
+					<img src="assets/photos/dscf3109.jpg" alt="Layers of rugged canyons beneath an overcast sky" width="1920" height="1280" loading="lazy" decoding="async" draggable="false">
+				</a>
+			</li>
+			<li class="photo">
+				<a href="assets/photos/dscf3135.jpg" aria-label="Open photo 10: A river winding between steep rocky canyon walls">
+					<img src="assets/photos/dscf3135.jpg" alt="A river winding between steep rocky canyon walls" width="1920" height="1280" loading="lazy" decoding="async" draggable="false">
+				</a>
+			</li>
+			<li class="photo">
+				<a href="assets/photos/dscf1714.jpg" aria-label="Open photo 11: A mosque framed by an archway, photographed in black and white">
+					<img src="assets/photos/dscf1714.jpg" alt="A mosque framed by an archway, photographed in black and white" width="1920" height="1280" loading="lazy" decoding="async" draggable="false">
+				</a>
+			</li>
+			<!-- PHOTOS:END -->
+		</ul>
+		</div>
+	</main>
+	<section id="detail" aria-label="Enlarged photograph" inert>
+		<div id="detailTrack"></div>
+	</section>
+	<div id="cursor" aria-hidden="true"></div>
+</body>
+</html>

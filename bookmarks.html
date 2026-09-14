@@ -6,16 +6,18 @@
 	<meta charset="utf-8">
 	<title>Bookmarks - Ninad Raval</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="theme.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+	<link href="theme.css" rel="stylesheet">
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
 	<style type="text/css">
 		html {
 			background:
-				radial-gradient(circle, #e0e0e0 1px, transparent 1px),
+				radial-gradient(circle, var(--dot) 1px, transparent 1px),
 				url(bg.jpg) no-repeat center center fixed;
 			background-size: 15px 15px, cover;
-			background-color: #fbfbf5;
+			background-color: var(--paper);
 			background-position: 0 0, center center;
 		}
 
@@ -35,23 +37,23 @@
 			padding: 50px 10%;
 			line-height: 1.8em;
 			font-size: 130%;
-			color: #000;
+			color: var(--ink);
 		}
 
 		.footer {
-			color: #ccc;
+			color: var(--faint);
 			font-size: 16px;
 		}
 
 		a,
 		a:visited {
-			color: #8e8e8e;
+			color: var(--muted);
 			text-decoration: underline;
 			border: none;
 		}
 
 		a:hover {
-			color: #000;
+			color: var(--ink);
 		}
 
 		span.name {
@@ -68,11 +70,11 @@
 			font-weight: 700;
 			margin-top: 2.8em;
 			margin-bottom: 0.8em;
-			color: #000;
+			color: var(--ink);
 		}
 
 		.intro {
-			color: #555;
+			color: var(--muted);
 			margin-bottom: 1em;
 		}
 
@@ -81,24 +83,24 @@
 		}
 
 		.entry a.title {
-			color: #000;
+			color: var(--ink);
 			text-decoration: none;
 			font-weight: 700;
-			border-bottom: 1px solid #ccc;
+			border-bottom: 1px solid var(--faint);
 		}
 
 		.entry a.title:hover {
-			color: #000;
-			border-bottom-color: #000;
+			color: var(--ink);
+			border-bottom-color: var(--ink);
 		}
 
 		.entry .by {
-			color: #8e8e8e;
+			color: var(--muted);
 		}
 
 		.entry .note {
 			display: block;
-			color: #555;
+			color: var(--muted);
 			font-size: 88%;
 			line-height: 1.7em;
 			margin-top: 0.35em;
@@ -109,13 +111,13 @@
 			margin-top: 0.6em;
 			font-size: 82%;
 			line-height: 1.55em;
-			color: #6b6b6b;
+			color: var(--muted);
 		}
 
 		.entry .quotes blockquote {
 			margin: 0 0 0.7em 0;
 			padding: 0 0 0 14px;
-			border-left: 2px solid #d6d2c4;
+			border-left: 2px solid var(--border);
 			font-style: italic;
 		}
 

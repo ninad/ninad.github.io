@@ -6,16 +6,18 @@
 	<meta charset="utf-8">
 	<title>Ninad Raval - Generalist, Bombay > Dubai</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="theme.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+	<link href="theme.css" rel="stylesheet">
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
 	<style type="text/css">
 		html {
 			background:
-				radial-gradient(circle, #e0e0e0 1px, transparent 1px),
+				radial-gradient(circle, var(--dot) 1px, transparent 1px),
 				url(bg.jpg) no-repeat center center fixed;
 			background-size: 15px 15px, cover;
-			background-color: #fbfbf5;
+			background-color: var(--paper);
 			background-position: 0 0, center center;
 		}
 
@@ -35,7 +37,7 @@
 			padding: 50px 10%;
 			line-height: 2em;
 			font-size: 150%;
-			color: #000;
+			color: var(--ink);
 		}
 
 		.cols {
@@ -58,19 +60,19 @@
 		}
 
 		.footer {
-			color: #ccc;
+			color: var(--faint);
 			font-size: 16px;
 		}
 
 		a,
 		a:visited {
-			color: #8e8e8e;
+			color: var(--muted);
 			text-decoration: underline;
 			border: none;
 		}
 
 		a:hover {
-			color: #000;
+			color: var(--ink);
 		}
 
 		span.name {
@@ -87,15 +89,19 @@
 			mix-blend-mode: multiply;
 		}
 
+		.home-portrait {
+			border-radius: 50%;
+		}
+
 		.group {
 			font-size: 65%;
 			letter-spacing: 0.12em;
 			text-transform: uppercase;
-			color: #b8b8b8;
+			color: var(--subtle);
 		}
 
 		.aside {
-			color: #b8b8b8;
+			color: var(--subtle);
 			font-size: 80%;
 		}
 
@@ -104,7 +110,7 @@
 			font-family: 'Courier New', monospace;
 			font-size: 10px;
 			line-height: 1.2;
-			color: #ccc;
+			color: var(--faint);
 			text-align: center;
 			padding: 20px 0 10px 0;
 			opacity: 0.6;
@@ -159,7 +165,7 @@
 
 <body>
 	<div id="page">
-		<a href="#"><img src="ninad_raval_bw.jpg" width="70" /></a><br />
+		<a href="#"><img class="home-portrait" src="ninad_raval_bw.jpg" width="70" alt="Ninad Raval" /></a><br />
 
 		<span class="name">Ninad Raval</span><span class="cursor">_</span><br><br>
 		Building thoughtful and well designed software products.<br>
@@ -174,6 +180,7 @@
 				<a href="https://answeritwell.com" target="_new">answeritwell.com</a><br>
 				<a href="https://hellomenot.com" target="_new">hellomenot.com</a><br>
 				<a href="https://storymap.site" target="_new">storymap.site</a><br>
+				<a href="photos.html">Photos</a><br>
 			</div>
 			<div class="col">
 				<span class="group">Reading</span>

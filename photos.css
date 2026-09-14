@@ -1,0 +1,133 @@
+:root {
+  --shadow-1: rgb(34 31 24 / 42%);
+  --shadow-2: rgb(34 31 24 / 34%);
+  --shadow-3: rgb(34 31 24 / 28%);
+  --dots: radial-gradient(circle, var(--dot) 1px, transparent 1px);
+  font-family: 'Lora', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
+  color: var(--ink);
+  background: var(--dots) 0 0 / 15px 15px var(--paper);
+}
+:root.dimmed {
+  --shadow-1: rgb(0 0 0 / 72%);
+  --shadow-2: rgb(0 0 0 / 56%);
+  --shadow-3: rgb(0 0 0 / 46%);
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; overscroll-behavior: none; }
+a { color: var(--muted); text-underline-offset: 3px; }
+a:hover { color: var(--ink); }
+:focus-visible { outline: 2px solid #555; outline-offset: 6px; }
+.back {
+  position: fixed;
+  z-index: 30;
+  top: max(4vh, env(safe-area-inset-top));
+  left: max(3vw, env(safe-area-inset-left));
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 14px;
+  text-decoration: none;
+}
+#home, #detail { position: fixed; inset: 0; }
+#home { z-index: 1; }
+#rail { position: absolute; inset: 0; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; touch-action: pan-x pinch-zoom; }
+#rail::-webkit-scrollbar { display: none; }
+.gallery-ready #rail { overflow: hidden; touch-action: pinch-zoom; }
+.rail {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  height: 100%;
+  gap: 5vw;
+  padding: 0 22vw 0 7vw;
+  margin: 0;
+  list-style: none;
+}
+.gallery-ready .rail { will-change: transform; }
+.photo { flex: none; }
+.photo a { display: block; }
+.photo img, .page img {
+  box-shadow:
+    0 40px 84px -18px var(--shadow-1),
+    0 18px 36px -8px var(--shadow-2),
+    0 4px 12px -2px var(--shadow-3);
+}
+.photo img, .page img {
+  display: block;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.photo img { max-height: 50svh; max-width: 80vw; }
+#detail { z-index: 10; display: none; touch-action: pinch-zoom; }
+#detailTrack { position: relative; display: flex; height: 100%; will-change: transform; }
+.page { flex: 0 0 100vw; height: 100%; display: flex; align-items: center; justify-content: center; }
+.page figure { display: flex; flex-direction: column; align-items: center; margin: 0; }
+.page img { max-height: 64svh; max-width: 84vw; }
+.page:has(figcaption) img { max-height: min(64svh, calc(100svh - 230px)); }
+.page figcaption {
+  max-width: min(44ch, 84vw);
+  margin-top: 32px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+  text-align: center;
+  text-wrap: pretty;
+}
+.caption-title { display: block; color: var(--ink); font-size: 16px; }
+.page figcaption p { margin: 0; }
+.page .caption-title + p { margin-top: 6px; }
+.flyer {
+  position: fixed;
+  z-index: 20;
+  overflow: visible;
+  pointer-events: none;
+  will-change: transform;
+  box-shadow:
+    0 40px 84px -18px var(--shadow-1),
+    0 18px 36px -8px var(--shadow-2),
+    0 4px 12px -2px var(--shadow-3);
+}
+.flyer img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain;
+  outline: none !important;
+  box-shadow: none !important;
+}
+#cursor {
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  margin: -25px 0 0 -25px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 36% 30%, #e8e8e8, #bdbdbd);
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform;
+  transition: opacity .25s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor, .custom-cursor * { cursor: none !important; }
+}
+@media (hover: none), (pointer: coarse) { #cursor { display: none; } }
+@media (max-width: 760px) {
+  .rail { padding-right: 9vw; }
+  .photo img { max-height: 44svh; max-width: 82vw; }
+  .page img { max-height: 64svh; max-width: 86vw; }
+  .back { top: max(20px, env(safe-area-inset-top)); left: max(5vw, env(safe-area-inset-left)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+}

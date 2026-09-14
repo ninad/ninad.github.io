@@ -1,0 +1,59 @@
+:root {
+	color-scheme: light;
+	--paper: #fbfbf5;
+	--ink: #111;
+	--muted: #70706a;
+	--subtle: #b8b8b8;
+	--faint: #ccc;
+	--dot: #e0e0e0;
+	--surface: #fff;
+	--surface-muted: #f5f1e6;
+	--border: #e0e0e0;
+}
+
+:root.dimmed {
+	color-scheme: dark;
+	--paper: #181816;
+	--ink: #f3f3ec;
+	--muted: #aaa9a1;
+	--subtle: #85857d;
+	--faint: #6f6f68;
+	--dot: #30302c;
+	--surface: #242421;
+	--surface-muted: #292924;
+	--border: #42423c;
+}
+
+:root.dimmed {
+	background-blend-mode: normal, multiply;
+}
+
+.theme-toggle {
+	position: fixed;
+	z-index: 30;
+	top: max(4vh, env(safe-area-inset-top));
+	right: max(3vw, env(safe-area-inset-right));
+	min-width: 44px;
+	min-height: 44px;
+	border: 0;
+	background: transparent;
+	color: var(--muted);
+	font: inherit;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.theme-toggle:hover { color: var(--ink); }
+
+:root.dimmed .home-portrait {
+	filter: none;
+	mix-blend-mode: normal;
+	opacity: 1;
+}
+
+@media (max-width: 760px) {
+	.theme-toggle {
+		top: max(20px, env(safe-area-inset-top));
+		right: max(5vw, env(safe-area-inset-right));
+	}
+}
