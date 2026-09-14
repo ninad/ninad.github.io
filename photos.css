@@ -48,14 +48,14 @@ a:hover { color: var(--ink); }
 }
 .gallery-ready .rail { will-change: transform; }
 .photo { flex: none; }
-.photo a { display: block; }
-.photo img, .page img {
+.photo a { position: relative; display: block; }
+.photo .gallery-media, .page .gallery-media {
   box-shadow:
     0 40px 84px -18px var(--shadow-1),
     0 18px 36px -8px var(--shadow-2),
     0 4px 12px -2px var(--shadow-3);
 }
-.photo img, .page img {
+.photo .gallery-media, .page .gallery-media {
   display: block;
   width: auto;
   height: auto;
@@ -63,13 +63,35 @@ a:hover { color: var(--ink); }
   user-select: none;
   -webkit-user-select: none;
 }
-.photo img { max-height: 50svh; max-width: 80vw; }
+.photo .gallery-media { max-height: 50svh; max-width: 80vw; }
+.play-badge {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgb(18 18 18 / 68%);
+  box-shadow: 0 4px 20px rgb(0 0 0 / 28%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.play-badge::after {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 15px;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 14px solid white;
+}
 #detail { z-index: 10; display: none; touch-action: pinch-zoom; }
 #detailTrack { position: relative; display: flex; height: 100%; will-change: transform; }
 .page { flex: 0 0 100vw; height: 100%; display: flex; align-items: center; justify-content: center; }
 .page figure { display: flex; flex-direction: column; align-items: center; margin: 0; }
-.page img { max-height: 64svh; max-width: 84vw; }
-.page:has(figcaption) img { max-height: min(64svh, calc(100svh - 230px)); }
+.page .gallery-media { max-height: 64svh; max-width: 84vw; }
+.page video.gallery-media { background: #000; }
+.page:has(figcaption) .gallery-media { max-height: min(64svh, calc(100svh - 230px)); }
 .page figcaption {
   max-width: min(44ch, 84vw);
   margin-top: 32px;
@@ -124,8 +146,8 @@ a:hover { color: var(--ink); }
 @media (hover: none), (pointer: coarse) { #cursor { display: none; } }
 @media (max-width: 760px) {
   .rail { padding-right: 9vw; }
-  .photo img { max-height: 44svh; max-width: 82vw; }
-  .page img { max-height: 64svh; max-width: 86vw; }
+  .photo .gallery-media { max-height: 44svh; max-width: 82vw; }
+  .page .gallery-media { max-height: 64svh; max-width: 86vw; }
   .back { top: max(20px, env(safe-area-inset-top)); left: max(5vw, env(safe-area-inset-left)); }
 }
 @media (prefers-reduced-motion: reduce) {

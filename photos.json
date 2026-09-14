@@ -1,5 +1,22 @@
 [
   {
+    "type": "video",
+    "file": "assets/photos/vid-20260810-062333-017-c652de80aa.mp4",
+    "width": 1920,
+    "height": 1086,
+    "alt": "A wide green valley and distant mountains viewed through a log cabin doorway",
+    "title": "",
+    "description": "",
+    "instagram_caption": "",
+    "share_instagram": false,
+    "source": "VID_20260810_062333_017.mov",
+    "source_fingerprint": "a62bcd9d82703bd62e891404aae734ad83a47ddc7f18905c5cebfc85d8659ff8",
+    "added_at": "2026-09-14T05:20:12+00:00",
+    "poster": "assets/photos/vid-20260810-062333-017-c652de80aa-poster.jpg",
+    "duration": 37.667,
+    "processor_version": 2
+  },
+  {
     "file": "assets/photos/dscf2926.jpg",
     "width": 1920,
     "height": 1280,

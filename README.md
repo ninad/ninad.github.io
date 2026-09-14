@@ -9,16 +9,17 @@ Lora typography and dotted paper background. The homepage links to it under Proj
 
 - `photos.json` is the source of truth. `scripts/photos.py` generates the marked
   photo list in `photos.html`; do not edit that generated block directly.
-- Drop JPEG or PNG images in the ignored `photo-inbox/` directory. Embedded
-  EXIF/IPTC metadata or a same-named JSON sidecar supplies the title, expanded
-  note, alt text, and optional Instagram caption.
+- Drop JPEG/PNG images or MOV/MP4/M4V videos in the ignored `photo-inbox/`
+  directory. Embedded metadata or a same-named JSON sidecar supplies the title,
+  expanded note, alt text, and optional Instagram caption.
 - Run `python3 scripts/photos.py sync` to process locally, `publish` to commit and
   push, or `watch --publish` to process new drops automatically.
 - `photos.css` keeps the gallery full screen with the dotted background and one
   back link. `photos.js` restores the template's smooth horizontal track, elastic
   gestures, shared-image expansion/collapse, and circular mouse cursor.
-- Click or tap a photo to enlarge. Click or tap the expanded photo or the canvas
-  to collapse it; Escape and the back link also return to the gallery.
+- Click or tap a photo or video poster to enlarge it. Expanded videos use native
+  playback controls. Click or tap the canvas to collapse; Escape and the back
+  link also return to the gallery.
 - Swipe, drag, or scroll horizontally to browse in either view. Vertical swipes
   and vertical scrolling do not change the gallery or open/close photos.
 - Motion follows the spring and drag-decay settings on mikematas.com: direct

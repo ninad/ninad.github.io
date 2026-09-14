@@ -1,5 +1,5 @@
 /* Click-to-open gallery with horizontal browsing, adapted from gallery-template.
-   Image order and descriptions are authored in photos.html. */
+   Media order and descriptions are authored in photos.html. */
 (() => {
 'use strict';
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
@@ -23,18 +23,32 @@ const railTrack=document.getElementById('railTrack');
 const detailTrack=document.getElementById('detailTrack');
 const cards=[...railTrack.querySelectorAll('.photo')];
 const links=cards.map(card=>card.querySelector('a'));
-const homeMedia=cards.map(card=>card.querySelector('img'));
+const homeMedia=cards.map(card=>card.querySelector('.gallery-media'));
 let suppressClick=false;
 if(!cards.length) return;
 cards.forEach((card,i)=>{
   card.dataset.i=i;
   const page=document.createElement('div');
   page.className='page';
-  const image=homeMedia[i].cloneNode();
-  image.loading='eager';
-  image.removeAttribute('fetchpriority');
+  let media;
+  if(card.dataset.type==='video'){
+    media=document.createElement('video');
+    media.className='gallery-media';
+    media.src=card.dataset.video;
+    media.poster=card.dataset.poster;
+    media.width=homeMedia[i].width;
+    media.height=homeMedia[i].height;
+    media.controls=true;
+    media.playsInline=true;
+    media.preload='metadata';
+    media.setAttribute('aria-label',homeMedia[i].alt);
+  } else {
+    media=homeMedia[i].cloneNode();
+    media.loading='eager';
+    media.removeAttribute('fetchpriority');
+  }
   const figure=document.createElement('figure');
-  figure.appendChild(image);
+  figure.appendChild(media);
   if(card.dataset.title || card.dataset.caption){
     const caption=document.createElement('figcaption');
     if(card.dataset.title){
@@ -54,7 +68,7 @@ cards.forEach((card,i)=>{
   detailTrack.appendChild(page);
 });
 const pages=[...detailTrack.children];
-const detailMedia=pages.map(page=>page.querySelector('img'));
+const detailMedia=pages.map(page=>page.querySelector('.gallery-media'));
 const captions=pages.map(page=>page.querySelector('figcaption'));
 class Scroller{
   constructor(vp,track,opts){
@@ -75,6 +89,7 @@ class Scroller{
       const index=clamp(Math.round(this.pos/this.vw),0,pages.length-1);
       if(index!==this.visibleIndex){
         pages.forEach((page,i)=>page.setAttribute('aria-hidden',String(i!==index)));
+        detailMedia.forEach((media,i)=>{ if(i!==index && media instanceof HTMLVideoElement) media.pause(); });
         this.visibleIndex=index;
       }
     }
@@ -163,7 +178,7 @@ class Scroller{
     },{passive:false});
 
     this.vp.addEventListener("pointerdown",e=>{
-      if(T.active||!this.active||!e.isPrimary||e.button!==0||e.ctrlKey||e.metaKey||e.altKey||e.shiftKey) return;
+      if(T.active||!this.active||!e.isPrimary||e.button!==0||e.ctrlKey||e.metaKey||e.altKey||e.shiftKey||e.target.closest('video')) return;
       clearTimeout(this.snapTimer); this.snapTimer=null;
       this.setInstant(this.pos);
       suppressClick=false; this.dragging=true; this.sx=e.clientX; this.sy=e.clientY; this.sp=this.target; this.axis=null;
@@ -206,7 +221,7 @@ class Scroller{
         const el=document.elementFromPoint(e.clientX,e.clientY);
         const card=el&&el.closest&&el.closest(".photo");
         if(card && this.opts.onTap) this.opts.onTap(+card.dataset.i);
-        else if(this.mode==='page' && !el?.closest('a,button')) closeNow();
+        else if(this.mode==='page' && !el?.closest('a,button,video')) closeNow();
       }
     };
     this.vp.addEventListener("pointerup",end);
@@ -269,6 +284,7 @@ function beginTransition(i,dir){
   home.setInstant(home.pos);
   for(const scroller of [home,detail]){ clearTimeout(scroller.snapTimer); scroller.snapTimer=null; }
   if(dir>0){ openedIndex=i; openedPosition=home.pos; }
+  if(dir<0 && detailMedia[i] instanceof HTMLVideoElement) detailMedia[i].pause();
   homeEl.style.display="block"; detailEl.style.display="block";
   detail.metrics(); detail.setInstant(i*detail.vw);
   if(dir<0){                          // closing: centre the matching card so the image returns to it
@@ -436,16 +452,16 @@ addEventListener('pointermove',e=>{
   if(!document.documentElement.classList.contains('custom-cursor')){ cx=mx; cy=my; }
   document.documentElement.classList.add('custom-cursor');
   cursor.style.opacity='1';
-  hovering=!!e.target.closest('a,button');
+  hovering=!!e.target.closest('a,button,video');
   wakeCursor();
 },{passive:true});
 addEventListener('pointerdown',()=>{ pressing=true; wakeCursor(); });
 addEventListener('pointerup',()=>{ pressing=false; wakeCursor(); });
 document.addEventListener('pointerover',e=>{
-  hovering=!!e.target.closest('a,button'); wakeCursor();
+  hovering=!!e.target.closest('a,button,video'); wakeCursor();
 },{passive:true});
 document.addEventListener('pointerout',e=>{
-  hovering=!!e.relatedTarget?.closest?.('a,button'); wakeCursor();
+  hovering=!!e.relatedTarget?.closest?.('a,button,video'); wakeCursor();
 },{passive:true});
 document.addEventListener('mouseleave',hideCursor);
 addEventListener('blur',hideCursor);

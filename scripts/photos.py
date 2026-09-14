@@ -34,6 +34,9 @@ STATE = ROOT / ".photo-publisher-state.json"
 START = "<!-- PHOTOS:START -->"
 END = "<!-- PHOTOS:END -->"
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png"}
+VIDEO_EXTENSIONS = {".mov", ".mp4", ".m4v"}
+MEDIA_EXTENSIONS = IMAGE_EXTENSIONS | VIDEO_EXTENSIONS
+VIDEO_PROCESSOR_VERSION = 2
 
 
 def clean_text(value) -> str:
@@ -69,16 +72,17 @@ def embedded_metadata(path: Path) -> dict[str, str]:
             or extracted.get("XPComment")
             or extracted.get("ImageDescription")
         )
-    with Image.open(path) as image:
-        exif = image.getexif()
-        result["title"] = result["title"] or clean_text(exif.get(40091))
-        result["description"] = result["description"] or clean_text(exif.get(40092) or exif.get(270) or exif.get(37510))
-        try:
-            iptc = IptcImagePlugin.getiptcinfo(image) or {}
-            result["title"] = result["title"] or clean_text(iptc.get((2, 5)))
-            result["description"] = result["description"] or clean_text(iptc.get((2, 120)))
-        except (OSError, SyntaxError):
-            pass
+    if path.suffix.lower() in IMAGE_EXTENSIONS:
+        with Image.open(path) as image:
+            exif = image.getexif()
+            result["title"] = result["title"] or clean_text(exif.get(40091))
+            result["description"] = result["description"] or clean_text(exif.get(40092) or exif.get(270) or exif.get(37510))
+            try:
+                iptc = IptcImagePlugin.getiptcinfo(image) or {}
+                result["title"] = result["title"] or clean_text(iptc.get((2, 5)))
+                result["description"] = result["description"] or clean_text(iptc.get((2, 120)))
+            except (OSError, SyntaxError):
+                pass
     return result
 
 
@@ -101,7 +105,7 @@ def slug(value: str) -> str:
     return value or "photo"
 
 
-def optimize(source: Path) -> tuple[Path, int, int]:
+def optimize_image(source: Path) -> tuple[Path, int, int]:
     ASSETS.mkdir(parents=True, exist_ok=True)
     with Image.open(source) as opened:
         image = ImageOps.exif_transpose(opened)
@@ -132,6 +136,86 @@ def optimize(source: Path) -> tuple[Path, int, int]:
     return destination, width, height
 
 
+def video_probe(path: Path) -> dict:
+    ffprobe = shutil.which("ffprobe")
+    if not ffprobe:
+        raise RuntimeError("ffprobe is required for videos. Install FFmpeg, then run sync again.")
+    completed = subprocess.run(
+        [
+            ffprobe,
+            "-v", "error",
+            "-select_streams", "v:0",
+            "-show_entries", "stream=width,height:format=duration",
+            "-of", "json",
+            str(path),
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    data = json.loads(completed.stdout)
+    streams = data.get("streams") or []
+    if not streams:
+        raise ValueError(f"{path.name} does not contain a video stream")
+    return {
+        "width": int(streams[0]["width"]),
+        "height": int(streams[0]["height"]),
+        "duration": round(float(data.get("format", {}).get("duration", 0)), 3),
+    }
+
+
+def optimize_video(source: Path) -> tuple[Path, Path, int, int, float]:
+    ffmpeg = shutil.which("ffmpeg")
+    if not ffmpeg:
+        raise RuntimeError("ffmpeg is required for videos. Install FFmpeg, then run sync again.")
+    ASSETS.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(suffix=".mp4", dir=ASSETS, delete=False) as handle:
+        temporary_video = Path(handle.name)
+    temporary_video.unlink()
+    temporary_poster = temporary_video.with_suffix(".jpg")
+    try:
+        subprocess.run(
+            [
+                ffmpeg, "-y", "-v", "error", "-i", str(source),
+                "-map", "0:v:0", "-map", "0:a?",
+                "-vf", "scale=1920:1920:force_original_aspect_ratio=decrease:force_divisible_by=2:in_range=full:out_range=tv,format=yuv420p",
+                "-c:v", "libx264", "-preset", "medium", "-crf", "24",
+                "-pix_fmt", "yuv420p", "-color_range", "tv",
+                "-c:a", "aac", "-b:a", "128k",
+                "-movflags", "+faststart", str(temporary_video),
+            ],
+            check=True,
+        )
+        details = video_probe(temporary_video)
+        poster_time = min(max(details["duration"] * 0.2, 0.1), 8.0)
+        subprocess.run(
+            [
+                ffmpeg, "-y", "-v", "error", "-ss", f"{poster_time:.3f}",
+                "-i", str(temporary_video), "-frames:v", "1",
+                "-vf", "scale=1600:1600:force_original_aspect_ratio=decrease:force_divisible_by=2",
+                "-q:v", "3", str(temporary_poster),
+            ],
+            check=True,
+        )
+        digest = hashlib.sha256(temporary_video.read_bytes()).hexdigest()[:10]
+        stem = f"{slug(source.stem)}-{digest}"
+        destination = ASSETS / f"{stem}.mp4"
+        poster = ASSETS / f"{stem}-poster.jpg"
+        if destination.exists():
+            temporary_video.unlink()
+        else:
+            temporary_video.replace(destination)
+        if poster.exists():
+            temporary_poster.unlink()
+        else:
+            temporary_poster.replace(poster)
+    except Exception:
+        temporary_video.unlink(missing_ok=True)
+        temporary_poster.unlink(missing_ok=True)
+        raise
+    return destination, poster, details["width"], details["height"], details["duration"]
+
+
 def load_manifest() -> list[dict]:
     data = json.loads(MANIFEST.read_text(encoding="utf-8"))
     if not isinstance(data, list):
@@ -146,13 +230,25 @@ def render_entry(photo: dict, index: int) -> str:
     if photo.get("description"):
         attributes.append(f'data-caption="{html.escape(photo["description"], quote=True)}"')
     attrs = (" " + " ".join(attributes)) if attributes else ""
+    media_type = photo.get("type", "image")
     file = html.escape(photo["file"], quote=True)
     alt = html.escape(photo["alt"], quote=True)
     eager = ' loading="eager" decoding="async" fetchpriority="high"' if index == 0 else ' loading="lazy" decoding="async"'
+    if media_type == "video":
+        poster = html.escape(photo["poster"], quote=True)
+        attrs = f' data-type="video" data-video="{file}" data-poster="{poster}"' + attrs
+        return (
+            f'\t\t\t<li class="photo video"{attrs}>\n'
+            f'\t\t\t\t<a href="{file}" aria-label="Open video {index + 1}: {alt}">\n'
+            f'\t\t\t\t\t<img class="gallery-media" src="{poster}" alt="{alt}" width="{photo["width"]}" height="{photo["height"]}"{eager} draggable="false">\n'
+            f'\t\t\t\t\t<span class="play-badge" aria-hidden="true"></span>\n'
+            f'\t\t\t\t</a>\n'
+            f'\t\t\t</li>'
+        )
     return (
         f'\t\t\t<li class="photo"{attrs}>\n'
         f'\t\t\t\t<a href="{file}" aria-label="Open photo {index + 1}: {alt}">\n'
-        f'\t\t\t\t\t<img src="{file}" alt="{alt}" width="{photo["width"]}" height="{photo["height"]}"{eager} draggable="false">\n'
+        f'\t\t\t\t\t<img class="gallery-media" src="{file}" alt="{alt}" width="{photo["width"]}" height="{photo["height"]}"{eager} draggable="false">\n'
         f'\t\t\t\t</a>\n'
         f'\t\t\t</li>'
     )
@@ -173,22 +269,42 @@ def sync(inbox: Path) -> list[str]:
     by_source = {photo.get("source"): photo for photo in manifest if photo.get("source")}
     added = []
     for source in sorted(inbox.iterdir() if inbox.exists() else []):
-        if not source.is_file() or source.suffix.lower() not in IMAGE_EXTENSIONS:
+        media_type = "video" if source.suffix.lower() in VIDEO_EXTENSIONS else "image"
+        if not source.is_file() or source.suffix.lower() not in MEDIA_EXTENSIONS:
             continue
         metadata = embedded_metadata(source)
         metadata.update({key: value for key, value in sidecar_metadata(source).items() if value not in (None, "")})
-        destination, width, height = optimize(source)
+        source_fingerprint = hashlib.sha256(source.read_bytes()).hexdigest()
+        photo = by_source.get(source.name)
+        reusable = (
+            photo is not None
+            and photo.get("source_fingerprint") == source_fingerprint
+            and (ROOT / photo["file"]).exists()
+            and (media_type == "image" or (ROOT / photo.get("poster", "")).is_file())
+            and (media_type == "image" or photo.get("processor_version") == VIDEO_PROCESSOR_VERSION)
+        )
+        if reusable:
+            destination = ROOT / photo["file"]
+            width, height = photo["width"], photo["height"]
+            poster = ROOT / photo["poster"] if media_type == "video" else None
+            duration = photo.get("duration")
+        elif media_type == "video":
+            destination, poster, width, height, duration = optimize_video(source)
+        else:
+            destination, width, height = optimize_image(source)
+            poster = None
+            duration = None
         relative = destination.relative_to(ROOT).as_posix()
         title = clean_text(metadata.get("title"))
         description = clean_text(metadata.get("description"))
         alt = clean_text(metadata.get("alt")) or description or title or source.stem.replace("_", " ").replace("-", " ")
-        photo = by_source.get(source.name)
         if photo is None:
             photo = {}
             manifest.insert(0, photo)
             by_source[source.name] = photo
             added.append(source.name)
         photo.update({
+            "type": media_type,
             "file": relative,
             "width": width,
             "height": height,
@@ -196,13 +312,22 @@ def sync(inbox: Path) -> list[str]:
             "title": title,
             "description": description,
             "instagram_caption": clean_text(metadata.get("instagram_caption")),
-            "share_instagram": bool(metadata.get("share_instagram", True)),
+            "share_instagram": bool(metadata.get("share_instagram", media_type == "image")),
             "source": source.name,
+            "source_fingerprint": source_fingerprint,
             "added_at": photo.get("added_at") or datetime.now(timezone.utc).isoformat(timespec="seconds"),
         })
+        if media_type == "video":
+            photo["poster"] = poster.relative_to(ROOT).as_posix()
+            photo["duration"] = duration
+            photo["processor_version"] = VIDEO_PROCESSOR_VERSION
+        else:
+            photo.pop("poster", None)
+            photo.pop("duration", None)
+            photo.pop("processor_version", None)
     MANIFEST.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     write_gallery(manifest)
-    print(f"Gallery ready: {len(manifest)} photos" + (f"; added {', '.join(added)}" if added else ""))
+    print(f"Gallery ready: {len(manifest)} items" + (f"; added {', '.join(added)}" if added else ""))
     return added
 
 
@@ -218,9 +343,9 @@ def publish_github(added: list[str]) -> bool:
         print("Nothing new to publish.")
         return False
     if len(added) == 1:
-        subject = f"Add photo: {added[0]}"
+        subject = f"Add gallery item: {added[0]}"
     elif added:
-        subject = f"Update photo gallery ({len(added)} new)"
+        subject = f"Update gallery ({len(added)} new)"
     else:
         subject = "Update photo gallery"
     run_git("commit", "-m", subject, "--", *paths)
@@ -276,7 +401,7 @@ def publish_instagram() -> None:
     manifest = load_manifest()
     for photo in reversed(manifest):
         file = photo["file"]
-        if not photo.get("share_instagram") or file in state:
+        if photo.get("type", "image") != "image" or not photo.get("share_instagram") or file in state:
             continue
         image_url = f"{site}/{file}"
         wait_until_public(image_url)

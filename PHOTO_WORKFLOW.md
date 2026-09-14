@@ -1,8 +1,8 @@
 # Photo publishing workflow
 
 This repository includes a local photo inbox and publisher. It keeps the
-website static: optimized images are committed to GitHub and `photos.html` is
-generated from `photos.json`.
+website static: optimized images and videos are committed to GitHub and
+`photos.html` is generated from `photos.json`.
 
 ## One-time setup
 
@@ -11,6 +11,9 @@ Install the image dependency:
 ```sh
 python3 -m pip install -r requirements-photos.txt
 ```
+
+Video processing also requires `ffmpeg` and `ffprobe` on your `PATH`. On macOS,
+they are available together through `brew install ffmpeg`.
 
 The default local drop folder is `photo-inbox/`. Its contents and publishing
 state are ignored by Git.
@@ -35,7 +38,8 @@ exiftool -overwrite_original \
   ~/Desktop/photo.jpg
 ```
 
-For a simpler, fully visible format, put `photo.json` beside `photo.jpg`:
+For a simpler, fully visible format, put `photo.json` beside `photo.jpg`. A
+video follows the same convention, so `clip.mov` uses `clip.json`:
 
 ```json
 {
@@ -58,9 +62,10 @@ Process everything currently in the inbox without publishing:
 python3 scripts/photos.py sync
 ```
 
-The publisher resizes new images to at most 2400 pixels, converts them to an
-optimized progressive JPEG, prepends them to `photos.json`, and regenerates the
-marked section of `photos.html`.
+The publisher resizes new images to at most 2400 pixels and converts them to
+optimized progressive JPEGs. MOV/MP4/M4V videos are converted to H.264/AAC MP4
+at up to 1920 pixels and receive a JPEG poster frame. New media is prepended to
+`photos.json`, then the marked section of `photos.html` is regenerated.
 
 Commit and push only the generated gallery files:
 
@@ -97,7 +102,8 @@ Or keep both automated:
 python3 scripts/photos.py watch --publish --instagram
 ```
 
-Instagram fetches the image from its public GitHub Pages URL, so this stage runs
+Instagram publishing currently sends still images only. It fetches the image
+from its public GitHub Pages URL, so this stage runs
 after the Git push and waits for the image to become reachable. Successful post
 IDs are stored only in `.photo-publisher-state.json` to prevent duplicates.
 
