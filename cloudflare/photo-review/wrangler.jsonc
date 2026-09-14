@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ninad-photo-review",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-14",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+  "vars": {
+    "ADMIN_EMAIL": "ninad@raval.in",
+    "INSTAGRAM_USER_ID": "17841400215640158",
+    "INSTAGRAM_API_VERSION": "v25.0",
+    "SITE_URL": "https://ninad.in/photos.html"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "ninad-photo-review",
+      "database_id": "1e6dbc6d-a283-461c-a836-9ddd9d58948c",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "r2_buckets": [
+    { "binding": "MEDIA", "bucket_name": "ninad-photo-media" }
+  ]
+}

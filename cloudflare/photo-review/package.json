@@ -1,0 +1,15 @@
+{
+  "name": "ninad-photo-review",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "wrangler types && tsc --noEmit && node --test test/*.test.js",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "types": "wrangler types"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "wrangler": "4.131.2"
+  }
+}

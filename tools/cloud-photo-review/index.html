@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Photo review · Ninad Raval</title>
+  <link rel="stylesheet" href="/app.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div><p class="eyebrow">ninad.in / photos</p><h1>Photo review</h1></div>
+    <div class="top-actions">
+      <span id="identity" class="muted"></span>
+      <label class="upload-button"><input id="upload" type="file" accept="image/jpeg,image/png,image/webp,video/mp4" multiple>Upload media</label>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <aside class="library" aria-label="Media awaiting review">
+      <div class="library-head"><span>Library</span><span id="itemCount" class="muted">0</span></div>
+      <div id="mediaList" class="media-list"></div>
+    </aside>
+
+    <section id="emptyState" class="empty-state">
+      <div><h2>Your cloud review desk</h2><p>Upload a photograph or an MP4. Edit the crop and copy, approve the exact result, then publish it to your site or Instagram.</p><p id="setupMessage" class="setup-message" hidden></p></div>
+    </section>
+
+    <section id="editor" class="editor" hidden>
+      <div class="canvas-wrap">
+        <div id="previewFrame" class="preview-frame feed_portrait">
+          <img id="imagePreview" alt="" hidden>
+          <video id="videoPreview" controls playsinline hidden></video>
+        </div>
+        <p class="preview-note">The approved version will use this crop.</p>
+      </div>
+
+      <form id="reviewForm" class="review-form">
+        <div class="status-row"><span id="statusPill" class="status-pill">Draft</span><span id="savedState" class="saved-state">Ready</span></div>
+        <div class="source-meta"><strong id="sourceName"></strong><span id="sourceDimensions" class="muted"></span></div>
+        <label><span>Format</span><select id="format"></select></label>
+        <fieldset id="cropControls">
+          <legend>Crop focus</legend>
+          <label><span>Horizontal <output id="focalXValue">50%</output></span><input id="focalX" type="range" min="0" max="100" value="50"></label>
+          <label><span>Vertical <output id="focalYValue">50%</output></span><input id="focalY" type="range" min="0" max="100" value="50"></label>
+        </fieldset>
+        <label><span>Caption <output id="captionCount">0 / 2200</output></span><textarea id="caption" rows="7" maxlength="2200"></textarea></label>
+        <label><span>Visual description</span><textarea id="alt" rows="4" maxlength="1000"></textarea></label>
+        <div class="primary-actions"><button id="saveButton" type="submit" class="secondary">Save draft</button><button id="approveButton" type="button">Approve exact version</button></div>
+        <div class="publish-box">
+          <p>Publish this approved version</p>
+          <div><button id="websiteButton" type="button" class="secondary">Add to website</button><button id="instagramButton" type="button" class="instagram">Post to Instagram</button></div>
+          <p id="publishState" class="muted"></p>
+        </div>
+      </form>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>

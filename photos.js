@@ -1,9 +1,10 @@
 /* Click-to-open gallery with horizontal browsing, adapted from gallery-template.
    Media order and descriptions are authored in photos.html. */
-(() => {
+(async () => {
 'use strict';
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const lerp=(a,b,t)=>a+(b-a)*t;
+const escapeHtml=value=>String(value||'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 // Motion values measured from mikematas.com: expansion 300/35, paging 450/50,
 // touch paging 800/80, edge return 550/50, and drag decay 0.96 per 60 Hz frame.
 // Integrate in seconds so 60 Hz and 120 Hz displays have the same response.
@@ -21,6 +22,21 @@ let reduce=motion.matches;
 motion.addEventListener('change',event=>{ reduce=event.matches; });
 const railTrack=document.getElementById('railTrack');
 const detailTrack=document.getElementById('detailTrack');
+try {
+  const response=await fetch('https://ninad-photo-review.ninad-085.workers.dev/gallery.json',{signal:AbortSignal.timeout(2500)});
+  if(response.ok){
+    const cloudItems=await response.json();
+    const markup=cloudItems.map((item,index)=>{
+      const file=escapeHtml(item.file), alt=escapeHtml(item.alt||'Gallery media'), description=escapeHtml(item.description||'');
+      const attrs=description?` data-caption="${description}"`:'';
+      if(item.type==='video') return `<li class="photo video" data-type="video" data-video="${file}" data-poster=""${attrs}><a href="${file}" aria-label="Open video ${index+1}: ${alt}"><video class="gallery-media" src="${file}" aria-label="${alt}" width="${item.width||1080}" height="${item.height||1920}" muted playsinline preload="metadata"></video><span class="play-badge" aria-hidden="true"></span></a></li>`;
+      return `<li class="photo"${attrs}><a href="${file}" aria-label="Open photo ${index+1}: ${alt}"><img class="gallery-media" src="${file}" alt="${alt}" width="${item.width||1080}" height="${item.height||1350}" loading="eager" decoding="async" draggable="false"></a></li>`;
+    }).join('');
+    railTrack.insertAdjacentHTML('afterbegin',markup);
+  }
+} catch(error) {
+  console.info('Cloud gallery feed is temporarily unavailable.',error);
+}
 const cards=[...railTrack.querySelectorAll('.photo')];
 const links=cards.map(card=>card.querySelector('a'));
 const homeMedia=cards.map(card=>card.querySelector('.gallery-media'));
@@ -41,7 +57,7 @@ cards.forEach((card,i)=>{
     media.controls=true;
     media.playsInline=true;
     media.preload='metadata';
-    media.setAttribute('aria-label',homeMedia[i].alt);
+    media.setAttribute('aria-label',homeMedia[i].getAttribute('alt')||homeMedia[i].getAttribute('aria-label')||'Gallery video');
   } else {
     media=homeMedia[i].cloneNode();
     media.loading='eager';

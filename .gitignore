@@ -8,3 +8,7 @@ photo-inbox/*
 .instagram-review-state.json*
 __pycache__/
 *.pyc
+node_modules/
+.wrangler/
+.dev.vars*
+cloudflare/photo-review/worker-configuration.d.ts

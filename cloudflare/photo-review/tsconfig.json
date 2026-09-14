@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "lib": ["ES2024"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "strict": true,
+    "types": []
+  },
+  "include": ["src/index.js", "src/core.js", "src/types.d.ts", "worker-configuration.d.ts"]
+}
