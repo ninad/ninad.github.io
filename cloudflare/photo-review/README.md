@@ -1,6 +1,6 @@
 # Cloud photo review
 
-This Cloudflare Worker is the private review desk for `ninad.in/photos.html`.
+This Cloudflare Worker is the private review desk for `raval.in/photos.html`.
 It accepts browser uploads, stores originals and approved variants in R2, keeps
 draft and publishing state in D1, and publishes an approved version separately
 to the website feed and Instagram.

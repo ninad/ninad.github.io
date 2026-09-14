@@ -7,7 +7,7 @@ const SECURITY_HEADERS = {
   'x-content-type-options': 'nosniff',
   'x-frame-options': 'DENY',
 };
-const UI_ORIGIN = 'https://ninad.in/tools/cloud-photo-review';
+const UI_ORIGIN = 'https://raval.in/tools/cloud-photo-review';
 
 /** @param {unknown} value */
 function json(value, status = 200) {

@@ -136,5 +136,5 @@ waits for the approved asset to become reachable. Successful post IDs are
 stored locally to prevent duplicates.
 
 Instagram feed-caption URLs are plain text rather than clickable links. Set the
-Instagram profile website to `https://ninad.in/photos.html`; each generated
-caption also ends with `More photographs: https://ninad.in/photos.html`.
+Instagram profile website to `https://raval.in/photos.html`; each generated
+caption also ends with `More photographs: https://raval.in/photos.html`.
