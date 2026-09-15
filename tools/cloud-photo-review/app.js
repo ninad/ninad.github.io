@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const $ = selector => document.querySelector(selector);
-  const state = { items: [], selected: null, storage: false, dirty: false };
+  const state = { items: [], selected: null, storage: false, dirty: false, busy: false };
   const els = {
     list: $('#mediaList'), editor: $('#editor'), empty: $('#emptyState'), upload: $('#upload'),
     image: $('#imagePreview'), video: $('#videoPreview'), frame: $('#previewFrame'), format: $('#format'),
@@ -33,10 +33,19 @@
     $('#focalXValue').textContent=`${els.fx.value}%`; $('#focalYValue').textContent=`${els.fy.value}%`;
     $('#captionCount').textContent=`${els.caption.value.length} / 2200`;
   }
+  function syncActions() {
+    const item=state.selected;
+    const approved=Boolean(item&&item.draft.status==='approved'&&!state.dirty);
+    els.save.disabled=state.busy||!item;
+    els.approve.disabled=state.busy||!item;
+    els.website.disabled=state.busy||!approved||item.draft.website_published;
+    els.instagram.disabled=state.busy||!approved||item.draft.instagram_status==='publishing'||item.draft.instagram_status==='published';
+  }
   function setDirty(value) {
     state.dirty=value;
     $('#savedState').textContent=value?'Unsaved changes':state.selected?.draft.status==='approved'?'Exact version approved':'Draft saved in Cloudflare';
     if(value) { $('#statusPill').textContent='Draft'; $('#statusPill').classList.remove('approved'); }
+    syncActions();
   }
   function select(id) {
     const item=state.items.find(entry=>entry.id===id); if(!item)return; state.selected=item;
@@ -48,8 +57,8 @@
     if(video){els.video.src=item.original_url;els.image.removeAttribute('src');}else{els.video.removeAttribute('src');els.image.src=previewUrl(item,item.draft.status==='approved');els.image.alt=item.draft.alt;}
     $('#sourceName').textContent=item.source; $('#sourceDimensions').textContent=[item.width&&item.height?`${item.width} × ${item.height}`:'',item.duration?`${item.duration.toFixed(1)} seconds`:''].filter(Boolean).join(' · ');
     const approved=item.draft.status==='approved'; $('#statusPill').textContent=approved?'Approved':'Draft'; $('#statusPill').classList.toggle('approved',approved);
-    els.website.disabled=!approved||item.draft.website_published; els.website.textContent=item.draft.website_published?'On website':'Add to website';
-    els.instagram.disabled=!approved||item.draft.instagram_status==='publishing'||item.draft.instagram_status==='published'; els.instagram.textContent=item.draft.instagram_status==='published'?'Posted':item.draft.instagram_status==='publishing'?'Posting…':'Post to Instagram';
+    els.website.textContent=item.draft.website_published?'On website':'Add to website';
+    els.instagram.textContent=item.draft.instagram_status==='published'?'Posted':item.draft.instagram_status==='publishing'?'Posting…':'Post to Instagram';
     $('#publishState').textContent=[item.draft.website_published?'Published on website':'',item.draft.instagram_status==='published'?'Published on Instagram':'',item.draft.error_message||''].filter(Boolean).join(' · ');
     setDirty(false); updatePreview(); renderList();
   }
@@ -77,7 +86,7 @@
     catch(error){toast(error.message); await load();} finally{disable(false);}
   }
   function replace(item){const index=state.items.findIndex(entry=>entry.id===item.id);state.items[index]=item;select(item.id);}
-  function disable(value){[els.save,els.approve,els.website,els.instagram].forEach(button=>button.disabled=value);}
+  function disable(value){state.busy=value;syncActions();}
   async function mediaDetails(file) {
     const url=URL.createObjectURL(file); try { if(file.type.startsWith('image/')){const image=new Image();image.src=url;await image.decode();return{width:image.naturalWidth,height:image.naturalHeight,duration:''};} const video=document.createElement('video');video.preload='metadata';video.src=url;await new Promise((resolve,reject)=>{video.onloadedmetadata=resolve;video.onerror=reject;});return{width:video.videoWidth,height:video.videoHeight,duration:video.duration}; } finally {URL.revokeObjectURL(url);}
   }
