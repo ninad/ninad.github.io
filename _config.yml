@@ -1,0 +1,14 @@
+# GitHub Pages runs this site through Jekyll. Files listed here stay in the
+# repository but are not copied to raval.in. Keep books.md and
+# tools/cloud-photo-review/ published: books.html fetches books.md, and the
+# Cloudflare Worker proxies the review desk interface from GitHub Pages.
+exclude:
+  - README.md
+  - PHOTO_WORKFLOW.md
+  - build.py
+  - requirements-photos.txt
+  - photos.json
+  - cloudflare
+  - scripts
+  - photo-inbox
+  - tools/instagram-review

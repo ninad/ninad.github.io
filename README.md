@@ -55,3 +55,4 @@ Open `http://localhost:8000/` for the home page or `http://localhost:8000/photos
 - Never place credentials in website files or commit `.env.instagram`.
 - `/gallery.json` and approved `/media/:id` files are public so the website and Instagram can fetch them. Drafts and all `/api/*` routes require the approved Cloudflare Access identity.
 - A private GitHub repository does not make files published by GitHub Pages private; the website remains public by design.
+- `_config.yml` lists the repository docs, scripts, Worker source, and local review tool that GitHub Pages must not publish. `books.md` and `tools/cloud-photo-review/` stay published because the website and the Worker fetch them.
