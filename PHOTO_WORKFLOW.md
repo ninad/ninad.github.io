@@ -1,5 +1,9 @@
 # Photo publishing workflow
 
+This is the optional local workflow. For uploading while travelling and reviewing
+from any device, use the Cloudflare review desk documented in
+[`cloudflare/photo-review/README.md`](cloudflare/photo-review/README.md).
+
 This repository includes a local photo inbox and publisher. It keeps the
 website static: optimized images and videos are committed to GitHub and
 `photos.html` is generated from `photos.json`.
